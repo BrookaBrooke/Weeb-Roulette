@@ -44,55 +44,225 @@
 
 ### Account Page Information
 
-## Account Creation
+## Account Page 
 
 ### Get account information
 
-* Endpoint path: /news
+* Endpoint path: /account_info
 * Endpoint method: GET
 
 * Headers:
   * Authorization: Bearer token
 
-* Response: A list of news items
+* Response: List of items that make up an account
 * Response shape:
     ```json
     {
-      "n": [
+      "account_info": [
         {
+          name: str,
+          username: str,
+          email: str,
+          bio: str,
+          avatar: picture_url,
+          signature: str,
+        }
+      ]
+    }
+    ```
+
+### Edit account information
+
+* Endpoint path: /account_info
+* Endpoint method: PUT
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request Body:
+    ```json
+    {
+      "account_info": [
+        {
+          name: str,
+          username: str,
+          email: str,
+          bio: str,
+          avatar: picture_url,
+          signature: str,
+        }
+      ]
+    }
+    ```
+* Response: An indication of success or failure
+* Response shape:
+    ```json
+    {
+      "success": boolean,
+      "message": string
+    }
+    ```
+
+## Create Account Page
+
+### Create an account
+
+* Endpoint path: /account_info
+* Endpoint method: POST
+
+* Request Body:
+    ```json
+    {
+      "account_info": [
+        {
+          name: str,
+          username: str,
+          email: str,
+          bio: str,
+          avatar: picture_url,
+          signature: str,
+          admin: boolean,
+        }
+      ]
+    }
+    ```
+* Response: An indication of success or failure
+* Response shape:
+    ```json
+    {
+      "success": boolean,
+      "message": string
+    }
+    ```
+
+## Index
+
+### Search Bar
+
+* Endpoint path: /concat_list
+* Endpoint method: GET
+* Query parameters:
+  * q: the word(s) to search for
+
+* Response: A list of Animes that match the query parameter
+* Response shape:
+    ```json
+    {
+      "anime": [
+        {
+          name: str,
+          href: url,
+        }
+      ]
+    }
+    ```
+
+### Account Info
+
+* Endpoint path: /account_info
+* Endpoint method: GET
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: Avatar and username for topright bar
+* Response shape:
+    ```json
+    {
+      "account_main": [
+        {
+          username: string,
+          avatar: string,
+          href: url,
+        }
+      ]
+    }
+    ```
+
+### Roulette
+
+* Endpoint path: /anime_list
+* Endpoint method: GET
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: Get random Anime from Anime List
+* Response shape:
+    ```json
+    {
+      "roulette": [
+        {
+          id: int,
+          href: url,
+        }
+      ]
+    }
+    ```
+
+## Main Page Information
+
+### Trending Anime
+
+* Endpoint path: /anime_list
+* Endpoint method: GET
+
+* Response: List of items that make up highest hit count Animes
+* Response shape:
+    ```json
+    {
+      "trending_anime": [
+        {
+          name: str,
+          hits: int,
+          href: url,
+        }
+      ]
+    }
+    ```
+
+### Recent Forum Post
+
+* Endpoint path: /forum_posts
+* Endpoint method: GET
+
+* Response: List of items that make up most recent forum posts
+* Response shape:
+    ```json
+    {
+      "recent_forum": [
+        {
+          title: str,
+          href: url,
+        }
+      ]
+    }
+    ```
+
+## Anime Page information
+
+### Anime List
+
+* Endpoint path: /https://kitsu.io/api/edge/anime
+* Endpoint method: GET
+
+* Response: List of animes
+* Response shape:
+    ```json
+    {
+      "anime_list": [
+        {
+          id: int,
+          type: str,
 
         }
       ]
     }
     ```
 
-## Page Template
-
-### Search Bar
-
-### Account Info
-
-### Roulette
-
-## Main Page Information
-
-### Trending Anime
-
-### Recent Forum Post
-
-### Ads
-
-## Anime Page information
-
-
-### Anime List
-
-
 ### Anime Detail
 
-
-
-## Manga Page Information
+## Manga Page Information *
 
 ### Manga List
 
