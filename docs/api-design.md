@@ -267,6 +267,7 @@
 
 ### Anime Detail
 
+<<<<<<< HEAD
 - Endpoint path: /https://kitsu.io/api/edge/anime
 - Endpoint method: GET
 
@@ -291,11 +292,65 @@
   ```
 
 ## Manga Page Information \*
+=======
+* Endpoint path: /https://kitsu.io/api/edge/anime
+* Endpoint method: GET
+
+* Response: Details of {anime.name}
+* Response shape:
+    ```json
+    {
+      "anime": [
+        {
+          data: from the api
+        }
+      ]
+    }
+    ```
+
+## Manga Page Information *
+>>>>>>> refs/remotes/origin/main
 
 ### Manga List
 
+* Endpoint path: /https://kitsu.io/api/edge/manga
+* Endpoint method: GET
+
+* Response: List of mangas
+* Response shape:
+    ```json
+    {
+      "manga_list": [
+        {
+          id: int,
+          type: str,
+
+        }
+      ]
+    }
+    ```
+
 ### Manga Detail
 
+<<<<<<< HEAD
+=======
+* Endpoint path: /https://kitsu.io/api/edge/manga
+* Endpoint method: GET
+
+* Response: List of mangas
+* Response shape:
+    ```json
+    {
+      "manga": [
+        {
+          data: from the api
+        }
+      ]
+    }
+    ```
+
+
+>>>>>>> refs/remotes/origin/main
 ## Forum Page Information
 
 ### Category List
