@@ -1,5 +1,5 @@
-# Nov 14
+# **Nov 14**
 
-## Today I worked on:
+### Today I worked on:
 
-1.
+1. Finishing up the api-design with the team.
