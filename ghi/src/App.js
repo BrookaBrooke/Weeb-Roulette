@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Construct from './Construct.js'
-import ErrorNotification from './ErrorNotification';
+import Construct from './bloat/Construct.js'
+import ErrorNotification from './bloat/ErrorNotification';
 import './App.css';
 
 function App() {
