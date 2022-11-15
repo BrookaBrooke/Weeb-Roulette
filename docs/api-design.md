@@ -254,7 +254,6 @@
         {
           id: int,
           type: str,
-
         }
       ]
     }
