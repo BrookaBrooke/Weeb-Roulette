@@ -1,4 +1,8 @@
-from fastapi import FastAPI
+from db import AccountsVOQueries
+from fastapi import FastAPI, Depends
+from models import AccountVO
+from poller import poll
+import asyncio
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
@@ -27,3 +31,12 @@ def launch_details():
             "tz:": "PST"
         }
     }
+@app.get("/api/accounts", response_model=list[AccountVO])
+def get_accounts(queries: AccountsVOQueries=Depends()):
+    accounts = queries.get_all_accounts()
+    return accounts
+
+@app.on_event("startup")
+async def schedule_poller():
+    loop = asyncio.get_event_loop()
+    loop.create_task(poll())

@@ -4,7 +4,7 @@ from psycopg_pool import ConnectionPool
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 
-class AccountsVO:
+class AccountsVOQueries:
     def get_all_accounts(self):
         with pool.connection() as connection:
             with connection.cursor() as cursor:

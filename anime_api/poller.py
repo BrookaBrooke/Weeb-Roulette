@@ -1,13 +1,13 @@
 import asyncio
 import os
 import requests
-from db import AccountsVO
+from db import AccountsVOQueries
 
 account_url = os.environ["ACCOUNT_API_HOST"] + "/api/account"
 POLL_INTERVAL_SECS = int(os.environ.get("POLL_INTERVAL_SECS", 10))
 
 async def poll():
-    queries = AccountsVO()
+    queries = AccountsVOQueries()
 
     while True:
         print("the poller is running")
