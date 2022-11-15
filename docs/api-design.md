@@ -259,7 +259,23 @@
       {
         id: int,
         type: str,
-
+        links: url,
+        attributes: {
+          synopsis: str,
+          titles: str,
+        }
+        canonicalTitle: str
+        startDate: date,
+        endDate: date,
+        ageRating: str,
+        ageRatingGuide: str,
+        status: str,
+        posterImage: url,
+        coverimage: url,
+        episodeCount: int,
+        episodeLength: int,
+        youtubeVideoId: str,
+        nsfw: str,
       }
     ]
   }
