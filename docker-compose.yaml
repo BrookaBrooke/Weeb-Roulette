@@ -11,12 +11,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: anime
   anime_api:
     build:
-      context: ./anime_api
+      context: ./weeb_roulette
       dockerfile: ./Dockerfile.dev
     ports:
       - 8000:8000
     volumes:
-      - ./anime_api:/app
+      - ./weeb_roulette:/app
     environment:
       DATABASE_URL: mongodb://root:password@mongo
       DATABASE_NAME: db-name

@@ -1,15 +1,4 @@
 from pydantic import BaseModel
-from datetime import datetime
-
-class AccountVO(BaseModel):
-    name: str
-    username: str
-    email: str
-    bio: str
-    avatar: str
-    signature: str
-    admin: bool
-    banned: bool
 
 class Anime(BaseModel):
     id: str
