@@ -379,8 +379,94 @@
   }
   ```
 
-### Threat List
+### Thread List
 
-### Thread List Detail
+- Endpoint path: /thread_list
+- Endpoint method: GET
 
-### Post List Detail
+- Response: List of forum threads
+- Response shape:
+  ```json
+  {
+    "thread": [
+      {
+        title: str,
+        post_date: datetime,
+        content: str,
+        last_updated: datetime,
+        author: str,
+        reply_count: int,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### Thread Detail
+
+- Endpoint path: /thread
+- Endpoint method: GET
+
+- Response: Thread detail
+- Response shape:
+  ```json
+  {
+    "thread": [
+      {
+        title: str,
+        post_date: datetime,
+        content: str,
+        last_updated: datetime,
+        author: str,
+        reply_count: int,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### Post List
+
+- Endpoint path: /post
+- Endpoint method: GET
+
+- Response: List of posts on a thread
+- Response shape:
+  ```json
+  {
+    "post": [
+      {
+        post_date: datetime,
+        content: str,
+        author: str,
+        is_edited: boolean,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### New reply
+
+- Endpoint path: /post
+- Endpoint method: POST
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Response: Create a post to reply to a thread
+- Response shape:
+  ```json
+  {
+    "reply": [
+      {
+        username: str,
+        content: str,
+      }
+    ]
+  }
+  ```
