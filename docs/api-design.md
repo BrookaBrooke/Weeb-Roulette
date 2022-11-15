@@ -267,32 +267,6 @@
 
 ### Anime Detail
 
-<<<<<<< HEAD
-- Endpoint path: /https://kitsu.io/api/edge/anime
-- Endpoint method: GET
-
-- Response: Details of animes
-- Response shape:
-  ```json
-  {
-    "anime_list": [
-      {
-        id: int,
-        type: str,
-        titles: str,
-        start_date: str,
-        end_date: str,
-        picture_url: url,
-        genre: str,
-        youtubeVideoId: url,
-        nsfw: boolean,
-      }
-    ]
-  }
-  ```
-
-## Manga Page Information \*
-=======
 * Endpoint path: /https://kitsu.io/api/edge/anime
 * Endpoint method: GET
 
@@ -309,7 +283,6 @@
     ```
 
 ## Manga Page Information *
->>>>>>> refs/remotes/origin/main
 
 ### Manga List
 
@@ -332,8 +305,6 @@
 
 ### Manga Detail
 
-<<<<<<< HEAD
-=======
 * Endpoint path: /https://kitsu.io/api/edge/manga
 * Endpoint method: GET
 
@@ -350,7 +321,6 @@
     ```
 
 
->>>>>>> refs/remotes/origin/main
 ## Forum Page Information
 
 ### Category List
