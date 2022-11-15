@@ -283,64 +283,101 @@
 
 ### Anime Detail
 
-* Endpoint path: /https://kitsu.io/api/edge/anime
-* Endpoint method: GET
+- Endpoint path: /https://kitsu.io/api/edge/anime
+- Endpoint method: GET
 
-* Response: Details of {anime.name}
-* Response shape:
-    ```json
-    {
-      "anime": [
-        {
-          data: from the api
-        }
-      ]
-    }
-    ```
+- Response: Details of {anime.name}
+- Response shape:
+  ```json
+  {
+    "anime": [
+      {
+        data: from the api
+      }
+    ]
+  }
+  ```
 
-## Manga Page Information *
+## Manga Page Information \*
 
 ### Manga List
 
-* Endpoint path: /https://kitsu.io/api/edge/manga
-* Endpoint method: GET
+- Endpoint path: /https://kitsu.io/api/edge/manga
+- Endpoint method: GET
 
-* Response: List of mangas
-* Response shape:
-    ```json
-    {
-      "manga_list": [
-        {
-          id: int,
-          type: str,
-        }
-      ]
-    }
-    ```
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "manga_list": [
+      {
+        id: int,
+        type: str,
+      }
+    ]
+  }
+  ```
 
 ### Manga Detail
 
-* Endpoint path: /https://kitsu.io/api/edge/manga
-* Endpoint method: GET
+- Endpoint path: /https://kitsu.io/api/edge/manga
+- Endpoint method: GET
 
-* Response: List of mangas
-* Response shape:
-    ```json
-    {
-      "manga": [
-        {
-          data: from the api
-        }
-      ]
-    }
-    ```
-
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "manga": [
+      {
+        data: from the api
+      }
+    ]
+  }
+  ```
 
 ## Forum Page Information
 
 ### Category List
 
+- Endpoint path: /https://kitsu.io/api/edge/anime
+- Endpoint method: GET
+
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "anime": [
+      {
+        relationships: {
+          genres:{
+            data: from the api
+          }
+        }
+      }
+    ]
+  }
+  ```
+
 ### Category List Detail
+
+- Endpoint path: /https://kitsu.io/api/edge/anime
+- Endpoint method: GET
+
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "anime": [
+      {
+        relationships: {
+          genres:{
+            data: from the api
+          }
+        }
+      }
+    ]
+  }
+  ```
 
 ### Threat List
 
