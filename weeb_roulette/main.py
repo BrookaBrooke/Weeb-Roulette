@@ -1,6 +1,4 @@
-from db import AccountsVOQueries
-from fastapi import FastAPI, Depends
-from models.accounts import Account, Accounts
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
