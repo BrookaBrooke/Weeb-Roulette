@@ -259,38 +259,29 @@
       {
         id: int,
         type: str,
-
+        links: url,
+        attributes: {
+          synopsis: str,
+          titles: str,
+        }
+        canonicalTitle: str
+        startDate: date,
+        endDate: date,
+        ageRating: str,
+        ageRatingGuide: str,
+        status: str,
+        posterImage: url,
+        coverimage: url,
+        episodeCount: int,
+        episodeLength: int,
+        youtubeVideoId: str,
+        nsfw: str,
       }
     ]
   }
   ```
 
 ### Anime Detail
-
-- Endpoint path: /https://kitsu.io/api/edge/anime
-- Endpoint method: GET
-
-- Response: Details of animes
-- Response shape:
-  ```json
-  {
-    "anime_list": [
-      {
-        id: int,
-        type: str,
-        titles: str,
-        start_date: str,
-        end_date: str,
-        picture_url: url,
-        genre: str,
-        youtubeVideoId: url,
-        nsfw: boolean,
-      }
-    ]
-  }
-  ```
-
-## Manga Page Information \*
 
 - Endpoint path: /https://kitsu.io/api/edge/anime
 - Endpoint method: GET
@@ -316,22 +307,18 @@
 
 - Response: List of mangas
 - Response shape:
-
   ```json
   {
     "manga_list": [
       {
         id: int,
         type: str,
-
       }
     ]
   }
   ```
 
 ### Manga Detail
-
-# <<<<<<< HEAD
 
 - Endpoint path: /https://kitsu.io/api/edge/manga
 - Endpoint method: GET
@@ -348,16 +335,138 @@
   }
   ```
 
-> > > > > > > refs/remotes/origin/main
-
 ## Forum Page Information
 
 ### Category List
 
+- Endpoint path: /https://kitsu.io/api/edge/anime
+- Endpoint method: GET
+
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "anime": [
+      {
+        relationships: {
+          genres:{
+            data: from the api
+          }
+        }
+      }
+    ]
+  }
+  ```
+
 ### Category List Detail
 
-### Threat List
+- Endpoint path: /https://kitsu.io/api/edge/anime
+- Endpoint method: GET
 
-### Thread List Detail
+- Response: List of mangas
+- Response shape:
+  ```json
+  {
+    "anime": [
+      {
+        relationships: {
+          genres:{
+            data: from the api
+          }
+        }
+      }
+    ]
+  }
+  ```
 
-### Post List Detail
+### Thread List
+
+- Endpoint path: /thread_list
+- Endpoint method: GET
+
+- Response: List of forum threads
+- Response shape:
+  ```json
+  {
+    "thread": [
+      {
+        title: str,
+        post_date: datetime,
+        content: str,
+        last_updated: datetime,
+        author: str,
+        reply_count: int,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### Thread Detail
+
+- Endpoint path: /thread
+- Endpoint method: GET
+
+- Response: Thread detail
+- Response shape:
+  ```json
+  {
+    "thread": [
+      {
+        title: str,
+        post_date: datetime,
+        content: str,
+        last_updated: datetime,
+        author: str,
+        reply_count: int,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### Post List
+
+- Endpoint path: /post
+- Endpoint method: GET
+
+- Response: List of posts on a thread
+- Response shape:
+  ```json
+  {
+    "post": [
+      {
+        post_date: datetime,
+        content: str,
+        author: str,
+        is_edited: boolean,
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+### New reply
+
+- Endpoint path: /post
+- Endpoint method: POST
+
+- Headers:
+
+  - Authorization: Bearer token
+
+- Response: Create a post to reply to a thread
+- Response shape:
+  ```json
+  {
+    "reply": [
+      {
+        username: str,
+        content: str,
+      }
+    ]
+  }
+  ```

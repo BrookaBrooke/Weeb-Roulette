@@ -9,6 +9,8 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. We came to realized that we did not need to make poller and we had to remove that from out project. This lead to other issues that we think we fixed, and FastAPI page is working.
+
 ## Nov 16
 
 Today, I worked on:
