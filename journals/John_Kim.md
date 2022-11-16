@@ -8,11 +8,13 @@ Today, I worked on:
 
 Today, I worked on:
 
-1. Set up Docker to make sure we startt working on our database
+1. Set up Docker to make sure we start working on our database
 
 ## Nov 16
 
 Today, I worked on:
+
+1. Created connection between FastAPI and MongoDB
 
 ## Nov 17
 
