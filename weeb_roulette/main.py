@@ -1,10 +1,12 @@
 from db import AccountsVOQueries
 from fastapi import FastAPI, Depends
-from models.accounts import Account, Accounts
+from models.accounts import Account
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from routes.accounts import user
 
 app = FastAPI()
+app.include_router(user)
 
 app.add_middleware(
     CORSMiddleware,
