@@ -1,5 +1,60 @@
-# **Nov 14**
+## Nov 14
 
-### Today I worked on:
+Today, I worked on:
 
 1. Finishing up the api-design with the team.
+2. Add Anime detail APIs
+
+## Nov 15
+
+Today, I worked on:
+
+1. We came to realized that we did not need to make poller and we had to remove that from out project. This lead to other issues that we think we fixed, and FastAPI page is working.
+
+## Nov 16
+
+Today, I worked on:
+
+## Nov 17
+
+Today, I worked on:
+
+## Nov 18
+
+Today, I worked on:
+
+## Nov 21
+
+Today, I worked on:
+
+## Nov 22
+
+Today, I worked on:
+
+## Nov 23
+
+Today, I worked on:
+
+## Nov 24
+
+Today, I worked on:
+
+## Nov 25
+
+Today, I worked on:
+
+## Nov 28
+
+Today, I worked on:
+
+## Nov 29
+
+Today, I worked on:
+
+## Nov 30
+
+Today, I worked on:
+
+## Dec 01
+
+Today, I worked on:
