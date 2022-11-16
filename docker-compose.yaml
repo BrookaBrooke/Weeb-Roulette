@@ -7,8 +7,8 @@ services:
     volumes:
       - mongo-data:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: weeb
-      MONGO_INITDB_ROOT_PASSWORD: anime
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
   anime_api:
     build:
       context: ./weeb_roulette
@@ -19,9 +19,8 @@ services:
       - ./weeb_roulette:/app
     environment:
       DATABASE_URL: mongodb://root:password@mongo
-      DATABASE_NAME: db-name
+      DATABASE_NAME: anime_api-1
       WAIT_HOSTS: mongo:27017
-      
   ghi:
     image: node:lts-bullseye
     command: bash -c "npm install && npm start"
