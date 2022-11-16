@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from models.anime import Anime
+
 
 app = FastAPI()
 
@@ -28,7 +31,12 @@ def launch_details():
         }
     }
 
-@app.get("/api/accounts", response_model=list[Account])
-def get_accounts(queries: AccountsVOQueries=Depends()):
-    accounts = queries.get_all_accounts()
-    return accounts
+@app.get("/all")
+def get_all():
+    data = db.all()
+    return {"data": data}
+
+@app.post("/create")
+def create(data:Anime):
+    id = db.create(data)
+    return {"inserted": True, "inserted_id": id}
