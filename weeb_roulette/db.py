@@ -2,7 +2,7 @@ import os
 from psycopg_pool import ConnectionPool
 
 
-pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
+pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"], open=False)
 
 class AccountsVOQueries:
     def get_all_accounts(self):
