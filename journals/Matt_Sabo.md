@@ -8,3 +8,6 @@ Created AnimeList.js component in ghi/animeComs
 bugfixed: FastAPI now shows at localhost:8000/docs
 deleted poller.py
 renamed Anime_api to weeb_roulette, only using one api
+
+11/16/2022
+worked with the team to create connection between mongodb container and fastapi container.
