@@ -11,3 +11,4 @@ renamed Anime_api to weeb_roulette, only using one api
 
 11/16/2022
 worked with the team to create connection between mongodb container and fastapi container.
+Updated requirements.txt file.
