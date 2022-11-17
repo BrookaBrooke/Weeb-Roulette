@@ -3,9 +3,13 @@ import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from models.anime import Anime
-
+from routers import anime, accounts, forums
 
 app = FastAPI()
+app.include_router(anime.router)
+app.include_router(accounts.router)
+app.include_router(forums.router)
+
 
 app.add_middleware(
     CORSMiddleware,
