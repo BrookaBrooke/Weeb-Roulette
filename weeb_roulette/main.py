@@ -6,7 +6,6 @@ from models.anime import Anime
 
 
 app = FastAPI()
-app.include_router(user)
 
 app.add_middleware(
     CORSMiddleware,
