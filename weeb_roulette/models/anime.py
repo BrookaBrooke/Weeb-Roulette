@@ -1,35 +1,19 @@
 from pydantic import BaseModel
-from models.pool import pool
-
-class attributes(BaseModel):
-    synopsis: str
-
-class posterImage(BaseModel):
-    tiny : str
-    small: str
-    medium: str
-    large: str
-    original: str
-
-class coverImage(BaseModel):
-    tiny: str
-    small: str
-    large: str
-    original: str
+from typing import Optional
 
 class Anime(BaseModel):
     id: str
     type: str
     links: str
-    attributes: attributes
+    attributes: dict = {}
     canonicalTitle: str
     startDate: str
     endDate: str
     ageRating: str
     ageRatingGuide: str
     status: str
-    posterImage: posterImage
-    coverImage: coverImage
+    posterImage: dict = {}
+    coverImage: dict = {}
     episodeCount: int
     episodeLength: int
     youtubeVideoId: str
@@ -38,4 +22,6 @@ class Anime(BaseModel):
 class AnimeList(BaseModel):
     AnimeList: list[Anime]
 
+#class QueueIn(BaseModel):
 
+#class QueueOut(BaseModel):
