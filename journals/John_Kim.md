@@ -20,9 +20,13 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Set up the Authenticator template and started working on call request/ building fast apis
+
 ## Nov 18
 
 Today, I worked on:
+
+1. Finished call request to third party api and built listview and detailview api
 
 ## Nov 21
 
