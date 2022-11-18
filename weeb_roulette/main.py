@@ -3,6 +3,9 @@ import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from models.anime import Anime
+from routers import anime, accounts, forums
+from acls import get_anime, get_anime_list
+# from models.authenticator import authenticator
 
 
 app = FastAPI()
@@ -40,3 +43,20 @@ def get_all():
 def create(data:Anime):
     id = db.create(data)
     return {"inserted": True, "inserted_id": id}
+
+@app.get("/anime_list")
+def anime_list():
+    data = get_anime_list()
+    return data
+
+@app.get("/anime_detail")
+def anime_detail(id):
+    data = get_anime(id)
+    return data
+
+
+
+app.include_router(anime.router)
+app.include_router(accounts.router)
+app.include_router(forums.router)
+# app.include_router(authenticator.router)
