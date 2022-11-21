@@ -15,13 +15,19 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. We finally finished getting mongo working, it took the help if Riley and what all the SEIRs. We are able to pull data and will this will lead us closer to finishing up the project.
+
 ## Nov 17
 
 Today, I worked on:
 
+1. We been having some issues with Mongo and have been trying to solve them using the Learn and the videos from Curtis.
+
 ## Nov 18
 
 Today, I worked on:
+
+1. Today we got Mongo to start working and everything seems to be working. We just need to work on the Authenticator and we can start working on the front next week
 
 ## Nov 21
 
