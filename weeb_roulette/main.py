@@ -3,7 +3,8 @@ import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from models.anime import Anime
-from routers import anime, forums, accounts
+from routers import anime, accounts, forums
+from api_call import get_anime, get_anime_list
 # from models.authenticator import authenticator
 from users.authenticator import authenticator
 
