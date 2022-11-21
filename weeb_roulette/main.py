@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from models.anime import Anime
 from routers import anime, accounts, forums
-from acls import get_anime, get_anime_list
+from api_call import get_anime, get_anime_list
 # from models.authenticator import authenticator
 
 
