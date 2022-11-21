@@ -7,11 +7,11 @@ function App() {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path = "home">
-              <Route index element={<mainPage />} />
+          <Route path="home">
+            <Route index element={<mainPage />} />
           </Route>
-          <Route path = "animelist">
-              <Route element = {<AnimeList />} />
+          <Route path="animelist">
+            <Route element={<animelistPage />} />
           </Route>
         </Routes>
       </div>
