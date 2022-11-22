@@ -33,6 +33,8 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Today I started the Detail List page. I made the mistake of having all the info in one container instead of two. The Grp was very happy with the way it looked, but i must change it up so it can fit with the rest the wire frame that have created.
+
 ## Nov 22
 
 Today, I worked on:
