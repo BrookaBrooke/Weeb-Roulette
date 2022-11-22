@@ -6,7 +6,7 @@ from models.anime import Anime
 from routers import anime, accounts, forums
 from api_call import get_anime, get_anime_list
 # from models.authenticator import authenticator
-from users.authenticator import authenticator
+from accounts.authenticator import authenticator
 
 
 app = FastAPI()
