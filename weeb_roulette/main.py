@@ -2,11 +2,10 @@ from fastapi import FastAPI, APIRouter
 import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from models.anime import Anime
 from routers import anime, accounts, forums
 from api_call import get_anime, get_anime_list
-# from models.authenticator import authenticator
 from accounts.authenticator import authenticator
+from models.accounts import Profile
 
 
 app = FastAPI()
@@ -42,11 +41,6 @@ def get_all():
     data = db.all()
     return {"data": data}
 
-@app.post("/create")
-def create(data:Anime):
-    id = db.create(data)
-    return {"inserted": True, "inserted_id": id}
-
 @app.get("/anime_list")
 def anime_list():
     data = get_anime_list()
@@ -57,8 +51,15 @@ def anime_detail(id):
     data = get_anime(id)
     return data
 
+@app.get("anime_queue")
+def anime_queue():
+    for i in Profile.anime_ids:
+        data = get_anime(i)
+        queue = {'data': data.data}
+    return queue
+    # figure out formatting class to dictionary of lists to dictionary of dictionary 
+    # potentially make another empty dictionary? 
 
 
 app.include_router(anime.router)
 app.include_router(forums.router)
-# app.include_router(authenticator.router)

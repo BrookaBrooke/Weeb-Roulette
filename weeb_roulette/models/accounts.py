@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class Profile(BaseModel):
     name: str
     bio: str
@@ -7,3 +8,4 @@ class Profile(BaseModel):
     signature: str
     admin: bool
     banned: bool
+    anime_ids: list[str]

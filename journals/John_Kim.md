@@ -32,6 +32,8 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Checked to make sure data populates on the front end for the anime list page.
+
 ## Nov 22
 
 Today, I worked on:
@@ -61,5 +63,41 @@ Today, I worked on:
 Today, I worked on:
 
 ## Dec 01
+
+Today, I worked on:
+
+## Dec 02
+
+Today, I worked on:
+
+## Dec 03
+
+Today, I worked on:
+
+## Dec 04
+
+Today, I worked on:
+
+## Dec 05
+
+Today, I worked on:
+
+## Dec 06
+
+Today, I worked on:
+
+## Dec 07
+
+Today, I worked on:
+
+## Dec 08
+
+Today, I worked on:
+
+## Dec 09
+
+Today, I worked on:
+
+## Dec 10
 
 Today, I worked on:
