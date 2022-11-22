@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
@@ -6,9 +6,12 @@ from models.anime import Anime
 from routers import anime, accounts, forums
 from api_call import get_anime, get_anime_list
 # from models.authenticator import authenticator
+from accounts.authenticator import authenticator
 
 
 app = FastAPI()
+app.include_router(accounts.router)
+app.include_router(authenticator.router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -57,6 +60,5 @@ def anime_detail(id):
 
 
 app.include_router(anime.router)
-app.include_router(accounts.router)
 app.include_router(forums.router)
 # app.include_router(authenticator.router)

@@ -5,6 +5,12 @@ dbname = os.environ['DATABASE_NAME']
 db = client[dbname]
 collection = db['anime']
 
+class Queries:
+    @property
+    def collection(self):
+        db = client[self.DB_NAME]
+        return db[self.COLLECTION]
+
 def create(data):
     data = dict(data)
     response = collection.insert_one(data)
