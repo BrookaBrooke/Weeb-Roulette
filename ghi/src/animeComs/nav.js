@@ -1,44 +1,21 @@
-import SidebarMenu from 'react-bootstrap-sidebar-menu';
-
-<SidebarMenu>
-  <SidebarMenu.Header>
-    <SidebarMenu.Brand>
-      {/* Your brand icon */}
-    </SidebarMenu.Brand>
-    <SidebarMenu.Toggle />
-  </SidebarMenu.Header>
-  <SidebarMenu.Body>
-    <SidebarMenu.Nav>
-      <SidebarMenu.Nav.Link>
-        <SidebarMenu.Nav.Icon>
-          {/* Menu item icon */}
-        </SidebarMenu.Nav.Icon>
-        <SidebarMenu.Nav.Title>
-          {/* Menu item title */}
-        </SidebarMenu.Nav.Title>
-      </SidebarMenu.Nav.Link>
-    <SidebarMenu.Nav/>
-    <SidebarMenu.Sub>
-      <SidebarMenu.Sub.Toggle>
-        <SidebarMenu.Nav.Icon />
-        <SidebarMenu.Nav.Title>
-          {/* Submenu title */}
-        </SidebarMenu.Nav.Title>
-      </SidebarMenu.Sub.Toggle>
-      <SidebarMenu.Sub.Collapse>
-        <SidebarMenu.Nav>
-          <SidebarMenu.Nav.Link>
-            <SidebarMenu.Nav.Icon>
-              {/* Submenu item icon */}
-            </SidebarMenu.Nav.Icon>
-            <SidebarMenu.Nav.Title>
-              {/* Submenu item title */}
-            </SidebarMenu.Nav.Title>
-          </SidebarMenu.Nav.Link>
-        </SidebarMenu.Nav>
-      </SidebarMenu.Sub.Collapse>
-    </SidebarMenu.Sub>
-  <SidebarMenu.Body/>
-</SidebarMenu>
-
-export default SidebarMenu;
+import React from "react";
+import { createBootstrapComponent } from "react-bootstrap/esm/ThemeProvider";
+function SideBar() {
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="'col-auto min-vh-100 bg-dark">
+          <ul>
+            <li>
+              <a className="nav-link px-2">
+                <i className="bi-house" />{" "}
+                <span className="ms-1 d-none d-sm-inline">Home</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+export default SideBar;
