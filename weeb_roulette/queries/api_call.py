@@ -15,5 +15,3 @@ def get_anime_list():
     response = requests.get(url, headers)
     content = json.loads(response.content)
     return content
-
-

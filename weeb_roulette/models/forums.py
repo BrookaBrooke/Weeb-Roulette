@@ -1,11 +1,11 @@
 from pydantic import BaseModel
 from datetime import datetime
 
-from .accounts import Account
+from .accounts import Profile
 
 class Post(BaseModel):
-    author: Account.username
-    posted: datetime.datetime
+    author: str
+    posted: datetime
     edited: bool
     likes: int
     dislikes: int
@@ -13,11 +13,11 @@ class Post(BaseModel):
 class Thread(BaseModel):
     id: int
     title: str
-    date_created: datetime.datetime
+    date_created: datetime
     content: str
-    last_updated: datetime.datetime
-    author: Account.username
+    last_updated: datetime
+    author: str
     number_of_replies: int
     likes: int
     dislikes: int
-    posts: Post | None = None
+    posts: list[Post]
