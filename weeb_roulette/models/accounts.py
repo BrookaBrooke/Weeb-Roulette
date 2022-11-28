@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from models.anime import AnimeQueue
+from accounts.models import Account
 
 class Profile(BaseModel):
     id: str
@@ -7,10 +7,5 @@ class Profile(BaseModel):
     bio: str
     avatar: str
     signature: str
-    # admin: bool
-    # banned: bool
-    anime_queue: list[AnimeQueue]
-
-
-
-    
+    account: Account
+    animequeue: list[str]

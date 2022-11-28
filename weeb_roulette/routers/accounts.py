@@ -7,6 +7,7 @@ from fastapi import (
     APIRouter,
     Request,
 )
+import db
 from jwtdown_fastapi.authentication import Token
 from accounts.authenticator import authenticator
 
@@ -15,6 +16,7 @@ from pydantic import BaseModel
 from accounts.models import (
     AccountIn,
     AccountOut,
+    Account
 )
 from accounts.accounts import (
     AccountQueries,
@@ -60,6 +62,7 @@ async def create_account(
     repo: AccountQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
+    print(hashed_password)
     try:
         account = repo.create(info, hashed_password)
     except DuplicateAccountError:
@@ -70,3 +73,8 @@ async def create_account(
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
+
+@router.get("/api/accounts")
+def get_all():
+    data = db.all(Account)
+    return {"data": data}

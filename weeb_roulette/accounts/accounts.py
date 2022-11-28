@@ -8,7 +8,7 @@ class DuplicateAccountError(ValueError):
     pass
 
 class AccountQueries(Queries):
-    DB_NAME = "anime"
+    DB_NAME = "weeb_roulette"
     COLLECTION = "accounts"
 
     def get(self, email: str) -> AccountPassword:
