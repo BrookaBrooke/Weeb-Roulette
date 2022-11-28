@@ -3,7 +3,7 @@ import pymongo, os
 client = pymongo.MongoClient(os.environ["DATABASE_URL"])
 dbname = os.environ['DATABASE_NAME']
 db = client[dbname]
-collection = db['anime']
+collection = db['accounts']
 
 class Queries:
     @property

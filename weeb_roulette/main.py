@@ -2,8 +2,7 @@ from fastapi import FastAPI, APIRouter
 import db
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from models.anime import Anime
-from routers import anime, accounts, forums
+from routers import accounts, forums
 from api_call import get_anime, get_anime_list
 # from models.authenticator import authenticator
 from accounts.authenticator import authenticator
@@ -23,27 +22,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/api/launch-details")
-def launch_details():
-    return {
-        "launch_details": {
-            "year": 2022,
-            "month": 12,
-            "day": "9",
-            "hour": 19,
-            "min": 0,
-            "tz:": "PST"
-        }
-    }
-
 @app.get("/all")
 def get_all():
     data = db.all()
     return {"data": data}
 
 @app.post("/create")
-def create(data:Anime):
+def create(data:accounts):
     id = db.create(data)
     return {"inserted": True, "inserted_id": id}
 
@@ -59,6 +44,5 @@ def anime_detail(id):
 
 
 
-app.include_router(anime.router)
 app.include_router(forums.router)
 # app.include_router(authenticator.router)
