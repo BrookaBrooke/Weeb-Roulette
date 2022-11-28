@@ -12,6 +12,8 @@ const AnimeList = () => {
         setAnimes(data.data)
     }
 
+
+
     useEffect(() => {
         fetchAnimes()
     }, []) // componentDidMount
@@ -31,6 +33,8 @@ const AnimeList = () => {
                         return(
                             <tr key={anime.id}>
                                 <td className="model-text">{ anime.attributes.canonicalTitle }</td>
+                                {/* Figure out on click redirect to detail page */}
+                                {/* assign id value to onclick function */}
                             </tr>
                         );
                     })}
