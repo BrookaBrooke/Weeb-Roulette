@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import mainPage from './animeComs/mainPage';
+import MainPage from './animeComs/mainPage';
 import AnimeList from './animeComs/animelistPage';
 
 function App() {
@@ -8,10 +8,10 @@ function App() {
       <div>
         <Routes>
           <Route path="home">
-            <Route index element={<mainPage />} />
+            <Route index element = {<MainPage />} />
           </Route>
-          <Route path="animelist">
-            <Route element={<animelistPage />} />
+          <Route>
+            <Route path="animelist" element = {<AnimeList />} />
           </Route>
         </Routes>
       </div>

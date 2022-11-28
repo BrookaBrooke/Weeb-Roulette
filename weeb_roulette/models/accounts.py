@@ -1,9 +1,11 @@
 from pydantic import BaseModel
+from accounts.models import Account
 
 class Profile(BaseModel):
+    id: str
     name: str
     bio: str
     avatar: str
     signature: str
-    admin: bool
-    banned: bool
+    account: Account
+    animequeue: list[str]

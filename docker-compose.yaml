@@ -21,7 +21,7 @@ services:
     environment:
       SIGNING_KEY: SYmgdKu0B2fX5O-RIZBjvm8gv9REtZ7HUHybSC
       DATABASE_URL: mongodb://root:password@mongo
-      DATABASE_NAME: mongo-data
+      DATABASE_NAME: weeb_roulette
       WAIT_HOSTS: mongo:27017
 
   ghi:

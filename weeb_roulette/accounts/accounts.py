@@ -1,14 +1,14 @@
 
 from .models import Account, AccountIn, AccountPassword
 from pymongo.errors import DuplicateKeyError
-from db import Queries
+from queries.animequeue import Queries
 
 
 class DuplicateAccountError(ValueError):
     pass
 
 class AccountQueries(Queries):
-    DB_NAME = "anime"
+    DB_NAME = "weeb_roulette"
     COLLECTION = "accounts"
 
     def get(self, email: str) -> AccountPassword:
