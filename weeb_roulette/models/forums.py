@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 
-from .accounts import Profile
+from .profiles import Profile
 
 class Post(BaseModel):
     author: str

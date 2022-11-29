@@ -4,13 +4,13 @@ from db import database, Queries
 
 
 collection = database['animequeue']
-
+# do we need "collection" when COLLECTION exists
 
 class AnimeQueueQueries(Queries):
     DB_NAME = "weeb_roulette"
     COLLECTION = "animequeue"
 
-    def create(self, animequeue: AnimeQueueIn) -> AnimeQueueOut:
+    def create_queue(self, animequeue: AnimeQueueIn) -> AnimeQueueOut:
         props = animequeue.dict()
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])

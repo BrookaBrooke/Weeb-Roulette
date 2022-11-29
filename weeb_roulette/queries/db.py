@@ -3,12 +3,13 @@ import pymongo, os
 client = pymongo.MongoClient(os.environ["DATABASE_URL"])
 dbname = os.environ['DATABASE_NAME']
 database = client[dbname]
+collection = ""
 
 class Queries:
     @property
     def collection(self):
-        db = client[self.DB_NAME]
-        return db[self.COLLECTION]
+        database = client[self.DB_NAME]
+        return database[self.COLLECTION]
 
     def create(data):
         data = dict(data)

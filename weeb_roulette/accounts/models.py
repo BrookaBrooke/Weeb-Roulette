@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import List
 
 class AccountIn(BaseModel):
+    username: str
     email: str
     password: str
 
@@ -12,12 +13,9 @@ class Account(AccountIn):
 
 class AccountOut(BaseModel):
     id: str
+    username: str
     email: str
     roles: List[str]
 
 class AccountPassword(AccountOut):
     password: str
-
-class SessionOut(BaseModel):
-    jti: str
-    account_id: str
