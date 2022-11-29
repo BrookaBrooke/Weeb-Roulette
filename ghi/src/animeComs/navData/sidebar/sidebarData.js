@@ -3,7 +3,7 @@ import React from "react";
 export const SideBarData = [
   {
     title: "AnimeList",
-    path: "/animelistPage",
+    path: "./animelistPage",
     cName: "sidebar-text",
   },
 ];

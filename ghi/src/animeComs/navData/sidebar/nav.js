@@ -9,7 +9,7 @@ function SideBar() {
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <div>
-      <div className="sideBar">
+      <div className="sidebar">
         <Link to="#" className="menu-bars">
           <a onClick={showSidebar}>x</a>
         </Link>
