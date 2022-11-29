@@ -29,15 +29,15 @@ from queries.client import Queries
 
 
 class AnimeQueueQueries(Queries):
-    DB_NAME = "anime"
+    DB_NAME = "weeb_roulette"
     COLLECTION = "animequeue"
-    
+
     def create(self, animequeue: AnimeQueueIn) -> AnimeQueueOut:
         props = animequeue.dict()
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])
         return AnimeQueueOut(**props)
-    
+
     def delete(self, anime_ids: str):
         self.collection.delete_one(
             {
