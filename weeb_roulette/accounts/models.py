@@ -2,22 +2,33 @@ from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List
 
+
+class PydanticObjectId(ObjectId):
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.validate
+
+    @classmethod
+    def validate(cls, value: ObjectId | str) -> ObjectId:
+        if value:
+            try:
+                ObjectId(value)
+            except:
+                raise ValueError(f"Not a valid object id: {value}")
+        return value
+
 class AccountIn(BaseModel):
+    username: str
     email: str
     password: str
 
 class Account(AccountIn):
-    id: str
-    roles: List[str]
+    id: PydanticObjectId
 
 class AccountOut(BaseModel):
     id: str
+    username: str
     email: str
-    roles: List[str]
 
 class AccountPassword(AccountOut):
     password: str
-
-class SessionOut(BaseModel):
-    jti: str
-    account_id: str

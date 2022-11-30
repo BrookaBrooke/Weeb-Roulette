@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from queries.api_call import get_anime, get_anime_list
 from accounts.authenticator import authenticator
-from models.accounts import Profile
+from models.profiles import Profile
 from accounts.models import AccountOut
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueOut
 from queries.animequeue import AnimeQueueQueries
@@ -38,11 +38,10 @@ async def create_anime_queue(
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise "error"
-    animequeues = repo.create(animequeues)
+    animequeues = repo.create_queue(animequeues)
     return animequeues
 
 #delete anime queue
 @router.delete("/anime_queues")
 def delete_queue():
     pass
-    

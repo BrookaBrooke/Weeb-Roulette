@@ -1,8 +1,8 @@
-from bson import ObjectId
-import pymongo, os
-from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueOut
+import os
+import pymongo
 
 client = pymongo.MongoClient(os.environ["DATABASE_URL"])
+
 
 class Queries:
     @property

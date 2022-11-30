@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 # from bson.objectid import ObjectId
 
-from .accounts import Profile
+from .profiles import Profile
 
 
 # class PydanticObjectId(ObjectId):
