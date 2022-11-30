@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, ThreadList, PostInWithThread
+from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, ThreadList
 from queries.forums import ThreadQueries, PostQueries
 from token_auth import get_current_user
 from routers.sockets import socket_manager
@@ -31,7 +31,16 @@ def get_threads(repo: ThreadQueries = Depends()):
     return ThreadList(threads=repo.get_all())
 
 
-@router.get("threads/{thread_id}", response_model=ThreadOut)
+@router.get("/threads/{thread_id}", response_model=ThreadOut)
+def get_thread(
+    thread_id = str,
+    repo: ThreadQueries = Depends(),
+    post_repo: PostQueries = Depends(),
+    ):
+    posts = post_repo.get_by_thread(thread_id)
+    thread = repo.get(thread_id)
+    thread.posts = posts
+    return thread
 
 
 @router.post("/threads/{thread_id}/posts", response_model=PostOut)
@@ -45,7 +54,7 @@ async def create_post(
     #     raise not_authorized
     # await socket_manager.broadcast_refetch()
     # , account_id=account.id
-    post_request = PostInWithThread(thread_id=thread_id, content=post.content)
+    post_request = PostIn(thread_id=thread_id, content=post.content)
     post_request = repo.create(post_request)
     return post_request
 

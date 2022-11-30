@@ -1,4 +1,4 @@
-from models.forums import ThreadIn, ThreadOut, PostIn, PostOut
+from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, PostList
 import pymongo, os
 from queries.client import Queries
 from bson.objectid import ObjectId
@@ -41,6 +41,14 @@ class ThreadQueries(Queries):
             ]
         return [ThreadOut(**thread) for thread in threadPropsList]
 
+    def get(self, id: str) -> ThreadOut:
+        x = ObjectId(id)
+        props = self.collection.find_one({"_id": x})
+        if not props:
+            return None
+        props["id"] = str(props["_id"])
+        return ThreadOut(**props)
+
 
 class PostQueries(Queries):
     DB_NAME = "weeb_roulette"
@@ -63,3 +71,14 @@ class PostQueries(Queries):
             return None
         props["id"] = str(props["_id"])
         return PostOut(**props)
+
+    def get_by_thread(self, thread_id: str) -> list[PostOut]:
+        props = self.collection.find({"thread_id": thread_id})
+        if not props:
+            return None
+        posts = []
+        for post in props:
+            post["id"] = str(post["_id"])
+            x = PostOut(**post)
+            posts.append(x)
+        return posts

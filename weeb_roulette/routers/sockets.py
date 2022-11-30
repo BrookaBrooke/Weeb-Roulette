@@ -24,7 +24,7 @@ class ConnectionManager:
             await connection.send_text(message)
 
     async def broadcast_refetch(self):
-        await self.broadcast("refetch books")
+        await self.broadcast("refetch threads")
 
 
 socket_manager = ConnectionManager()
