@@ -22,8 +22,10 @@ class AnimeQueueIn(BaseModel):
 
 class AnimeQueue(AnimeQueueIn):
     id: str
-    anime_ids: list[str]
+    anime_ids: list[str] | None = []
 
-class AnimeQueueOut(BaseModel):
-    id: str
-    anime_ids: list[str]
+class AnimeIdRequest(BaseModel):
+    anime_id: str
+
+class AnimeQueueList (BaseModel):
+    animequeues : list[AnimeQueue]
