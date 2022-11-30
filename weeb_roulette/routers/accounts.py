@@ -7,7 +7,7 @@ from fastapi import (
     APIRouter,
     Request,
 )
-import db
+from queries import db
 from jwtdown_fastapi.authentication import Token
 from accounts.authenticator import authenticator
 

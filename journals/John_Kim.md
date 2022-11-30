@@ -38,9 +38,13 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Realized that we needed Queries to actually interact with the database. Started looking into making queries that would interact with our MongoDb 
+
 ## Nov 23
 
 Today, I worked on:
+
+1. Continued to research as it was the day before Thanksgiving but didn't get to much coding.
 
 ## Nov 24
 
@@ -50,9 +54,21 @@ Today, I worked on:
 
 Today, I worked on:
 
+## Nov 26
+
+Today, I worked on:
+
+## Nov 27
+
+Today, I worked on:
+
+1. Realized that most of my written routers were written very poorly. Had to rewrite, refactor and add many more routers than initially thought.
+
 ## Nov 28
 
 Today, I worked on:
+
+1. Referenced an example repo to write out all of the methods for AnimeQueueQueries.
 
 ## Nov 29
 

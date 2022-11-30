@@ -1,7 +1,7 @@
 
 from .models import Account, AccountIn, AccountPassword
 from pymongo.errors import DuplicateKeyError
-from queries.animequeue import Queries
+from queries.db import Queries
 
 
 class DuplicateAccountError(ValueError):
