@@ -1,6 +1,5 @@
 // import React from "react";
 
-
 // const AnimeList = (props) => {
 // const [animes, setAnime] = useState({
 //     canonicalTitle: 'Loading...',
@@ -16,7 +15,6 @@
 //   useEffect(() => {
 //     fetchAnimes()
 //   }, []) // componentDidMount
-
 
 //     return (
 //         <div className="container">

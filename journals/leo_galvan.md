@@ -39,6 +39,8 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. i had to retouched my Detail List page and i am having trouble with the new format. I was unable to figure it out but have a good idea what steps i need to do to solve it tomorrow.
+
 ## Nov 23
 
 Today, I worked on:
@@ -46,6 +48,7 @@ Today, I worked on:
 ## Nov 24
 
 Today, I worked on:
+Thanksgiving: Today i worked on eating!
 
 ## Nov 25
 

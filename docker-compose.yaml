@@ -1,6 +1,6 @@
 volumes:
-    mongo-data:
-        external: true
+  mongo-data:
+    external: true
 services:
   mongo:
     image: mongo:5
@@ -26,7 +26,7 @@ services:
 
   ghi:
     image: node:lts-bullseye
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm install --legacy-peer-deps && npm start"
     working_dir: /app
     volumes:
       - ./ghi:/app

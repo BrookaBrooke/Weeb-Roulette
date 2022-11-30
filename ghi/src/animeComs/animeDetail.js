@@ -8,15 +8,11 @@ class App extends React.Component {
       {
         _id: "1",
         title: "Brookes Anime List",
-        src: [
-          "https://cdn.myanimelist.net/images/anime/10/81382.jpg",
-          "https://cdn.myanimelist.net/images/anime/1589/95329.jpg",
-          "https://cdn.myanimelist.net/images/anime/1818/126435.jpg",
-          "https://cdn.myanimelist.net/images/anime/1780/121555.jpg",
-        ],
+        src: ["https://cdn.myanimelist.net/images/anime/10/81382.jpg"],
         description: "Prometheus' Crime",
         content:
           "Feeling sorry for man's weak and naked state, Prometheus raided the workshop of Hephaistos and Athena on Mt. Olympus and stole fire, and by hiding it in a hollow fennel-stalk, he gave the valuable gift to man which would help him in life's struggle. The Titan also taught man how to use their gift and so the skill of metalwork began; he also came to be associated with science and culture.",
+        // colors: ["red", "black", "crimson", "teal"],
         count: 1,
       },
     ],
@@ -74,38 +70,31 @@ class App extends React.Component {
 
 export default App;
 
-// import React from "react";
-// import { useParams, Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
+// Using top info
 
-// export default function animeDetail() {
-//   const { id } = useParams();
-//   const [details, setDetails] = useState();
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import mainPage from "./animeComs/mainPage";
+// import AnimeList from "./animeComs/animelistPage";
+// import animeDetail from "./animeComs/animeDetail";
 
-//   useEffect(() => {
-//     console.log("useEffect");
-//     const url = "https://kitsu.io/api/edge/anime/" + id;
-//     // wait for the correct URL ^
-//     fetch(url)
-//       .then((response) => {
-//         return response.json();
-//       })
-//       .then((data) => {
-//         setDetails(data.details);
-//       });
-//   }, []);
-
+// function App() {
 //   return (
-//     <>
-//       {details ? (
-//         <div>
-//           <p>{details.id}</p>
-//           <p>{details.titles}</p>
-//           <p>{details.startDate}</p>
-//           <p>{details.endDate}</p>
-//         </div>
-//       ) : null}
-//       {/* <Link to='/homepage or another page'>"PAGE"</Link> */}
-//     </>
+//     <BrowserRouter>
+//       <div>
+//         <Routes>
+//           <Route path="home">
+//             <Route index element={<mainPage />} />
+//           </Route>
+//           <Route path="animelist">
+//             <Route element={<animelistPage />} />
+//           </Route>
+//           <Route path="animelist/details">
+//             <Route element={<animelistPages />} />
+//           </Route>
+//         </Routes>
+//       </div>
+//     </BrowserRouter>
 //   );
 // }
+
+// export default App;
