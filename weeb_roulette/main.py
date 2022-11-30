@@ -1,13 +1,8 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from routers import anime, accounts, forums
-from queries.api_call import get_anime, get_anime_list
-# from models.authenticator import authenticator
-from routers import anime, accounts, forums
-from queries.api_call import get_anime, get_anime_list
 from accounts.authenticator import authenticator
-from models.accounts import Profile
 
 
 app = FastAPI()
@@ -25,8 +20,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# @app.get("/all")
-# def get_all():
-#     data = db.all()
-#     return {"data": data}

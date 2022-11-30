@@ -1,4 +1,3 @@
-
 from fastapi import (
     Depends,
     HTTPException,
@@ -7,7 +6,6 @@ from fastapi import (
     APIRouter,
     Request,
 )
-import db
 from jwtdown_fastapi.authentication import Token
 from accounts.authenticator import authenticator
 
@@ -18,7 +16,7 @@ from accounts.models import (
     AccountOut,
     Account
 )
-from accounts.accounts import (
+from accounts.queries import (
     AccountQueries,
     DuplicateAccountError
 )
@@ -62,7 +60,6 @@ async def create_account(
     repo: AccountQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
-    print(hashed_password)
     try:
         account = repo.create(info, hashed_password)
     except DuplicateAccountError:
@@ -75,6 +72,22 @@ async def create_account(
     return AccountToken(account=account, **token.dict())
 
 @router.get("/api/accounts")
-def get_all():
-    data = db.all(Account)
-    return {"data": data}
+def get_accounts(repo: AccountQueries = Depends()):
+    return repo.all()
+
+@router.get("/api/accounts/{username}", response_model=AccountOut)
+def account_details(email: str, repo: AccountQueries = Depends()):
+    account = repo.get(email)
+    return account
+
+@router.put("/api/accounts/{username}", response_model=AccountOut)
+def account_update(id: str, account: AccountIn, repo: AccountQueries = Depends()):
+    account_out = repo.update(id, account.username, account.email, account.password)
+    if account_out is None:
+        return {"message": "Nothing was changed"}
+    return account_out
+
+@router.delete("/api/accounts/{username}")
+def account_delete(id: str, repo: AccountQueries = Depends()):
+    repo.delete(id=id)
+    return True

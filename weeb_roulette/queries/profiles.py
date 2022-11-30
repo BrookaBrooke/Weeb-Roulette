@@ -1,30 +1,27 @@
 from bson import ObjectId
-from models.profiles import Profile, ProfileOut
-from db import database, Queries
-
-
-collection = database["profiles"]
+from models.profiles import ProfileIn, Profile
+from db import Queries
 
 class ProfileQueries(Queries):
     DB_NAME = "weeb_roulette"
     COLLECTION = "profiles"
 
-    def create_profile(self, profile: Profile) -> ProfileOut:
+    def create_profile(self, profile: ProfileIn) -> Profile:
         props = profile.dict()
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])
-        return ProfileOut(**props)
+        return Profile(**props)
 
-    def delete(self, profile_id: str):
+    def delete(self, id: str):
         self.collection.delete_one(
             {
-                "profile_id": ObjectId(profile_id)
+                "_id": ObjectId(id)
             }
         )
 
-    def get(self, id: str) -> ProfileOut:
+    def get(self, id: str) -> Profile:
         props = self.collection.find_one({"id": id})
         if not props:
             return None
         props["id"] = str(props["_id"])
-        return ProfileOut(**props)
+        return Profile(**props)

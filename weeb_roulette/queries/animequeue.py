@@ -1,10 +1,6 @@
 from bson import ObjectId
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueOut
-from db import database, Queries
-
-
-collection = database['animequeue']
-# do we need "collection" when COLLECTION exists
+from db import Queries
 
 class AnimeQueueQueries(Queries):
     DB_NAME = "weeb_roulette"
