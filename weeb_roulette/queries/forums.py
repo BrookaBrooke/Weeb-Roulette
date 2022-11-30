@@ -1,6 +1,6 @@
 from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, PostList
 import pymongo, os
-from queries.client import Queries
+from db import Queries
 from bson.objectid import ObjectId
 
 # client = pymongo.MongoClient(os.environ["DATABASE_URL"])

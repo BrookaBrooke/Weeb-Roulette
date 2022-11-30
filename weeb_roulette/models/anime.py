@@ -21,7 +21,7 @@ class AnimeQueueIn(BaseModel):
 
 class AnimeQueue(AnimeQueueIn):
     id: str
-    anime_ids: Optional[list[str]]
+    anime_ids: list[str] | None = []
 
 class AnimeIdRequest(BaseModel):
     anime_id: str

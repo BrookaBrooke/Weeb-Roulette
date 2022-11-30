@@ -5,7 +5,7 @@ from models.profiles import Profile
 from accounts.models import AccountOut
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueList, AnimeIdRequest
 from queries.anime import AnimeQueueQueries
-import queries.db
+import db
 
 
 router = APIRouter()

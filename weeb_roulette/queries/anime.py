@@ -1,8 +1,6 @@
 from bson import ObjectId
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeIdRequest
-from queries.db import database, Queries
-
-collection = database['animequeue']
+from db import Queries
 
 class AnimeQueueQueries(Queries):
     DB_NAME = "weeb_roulette"
