@@ -25,3 +25,14 @@ class AnimeQueueQueries(Queries):
             return None
         props["id"] = str(props["_id"])
         return AnimeQueueOut(**props)
+
+    def get_by_profile(self, profile_id: str) -> list[AnimeQueue]:
+        props = self.collection.find({"profile_id" : profile_id})
+        if not props:
+            return None
+        animequeues = []
+        for animequeue in props:
+            animequeue["id"] = str(animequeue["_id"])
+            i = AnimeQueue(**animequeue)
+            animequeues.append(i)
+        return animequeues

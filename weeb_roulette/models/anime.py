@@ -18,6 +18,7 @@ class PydanticObjectId(ObjectId):
 
 class AnimeQueueIn(BaseModel):
     name: str
+    profile_id: str
 
 class AnimeQueue(AnimeQueueIn):
     id: str
@@ -26,6 +27,3 @@ class AnimeQueue(AnimeQueueIn):
 class AnimeQueueOut(BaseModel):
     id: str
     anime_ids: list[str]
-
-
-

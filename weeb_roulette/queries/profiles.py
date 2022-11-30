@@ -20,8 +20,21 @@ class ProfileQueries(Queries):
         )
 
     def get(self, id: str) -> Profile:
-        props = self.collection.find_one({"id": id})
+        props = self.collection.find_one({"_id": ObjectId(id)})
         if not props:
             return None
         props["id"] = str(props["_id"])
         return Profile(**props)
+
+    def update(self, id: str, bio: str, signature: str, city: str, state: str):
+        self.collection.update_one(
+            {"_id": ObjectId(id)},
+            {"$set" : {
+                "bio" : bio,
+                "signature" : signature,
+                "city" : city,
+                "state" : state
+                }
+            }
+        )
+        return Profile(id=id, bio=bio, signature=signature, city=city, state=state)

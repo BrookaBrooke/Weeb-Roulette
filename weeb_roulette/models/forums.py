@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 
-from .profiles import Profile
+# from .profiles import Profile
 
 class Post(BaseModel):
     author: str
@@ -10,7 +10,7 @@ class Post(BaseModel):
     likes: int
     dislikes: int
 
-class Thread(BaseModel):
+class ThreadOut(BaseModel):
     id: int
     title: str
     date_created: datetime

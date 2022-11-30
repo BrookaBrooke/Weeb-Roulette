@@ -14,8 +14,9 @@ from pydantic import BaseModel
 from accounts.models import (
     AccountIn,
     AccountOut,
-    Account
 )
+from models.profiles import Profile
+from queries.profiles import ProfileQueries
 from accounts.queries import (
     AccountQueries,
     DuplicateAccountError
@@ -55,13 +56,17 @@ async def get_token(
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
+    profile: Profile,
     request: Request,
     response: Response,
     repo: AccountQueries = Depends(),
+    profile_repo: ProfileQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
     try:
         account = repo.create(info, hashed_password)
+        profile = profile_repo.create_profile(profile)
+        profile.account = account
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
