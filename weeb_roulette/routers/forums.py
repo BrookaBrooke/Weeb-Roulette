@@ -3,6 +3,7 @@ from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, ThreadList
 from queries.forums import ThreadQueries, PostQueries
 from token_auth import get_current_user
 from routers.sockets import socket_manager
+from accounts.authenticator import authenticator
 
 router = APIRouter()
 
@@ -17,7 +18,7 @@ not_authorized = HTTPException(
 async def create_thread(
     thread: ThreadIn,
     repo: ThreadQueries = Depends(),
-    # account: dict = Depends(get_current_user),
+    # account: dict = Depends(authenticator.get_current_account_data),
     ):
     # if "user" not in account.roles:
     #     raise not_authorized

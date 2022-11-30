@@ -52,6 +52,7 @@ class PostList(BaseModel):
 class ThreadIn(BaseModel):
     title: str
     content: str
+    profile_id: str
 
 # class Thread(ThreadIn):
 #     id: PydanticObjectId
