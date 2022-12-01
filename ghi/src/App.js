@@ -1,58 +1,139 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import mainPage from "./animeComs/mainPage";
-import AnimeList from "./animeComs/animelistPage";
-import CardUI from "./Cads/CardUI";
-import SignIn from "./SignIn/SignIn";
+// import React from "react";
+// import
 
-function App() {
+// function App() {
+//   return (
+//     <div className="card" style={{ width: "18rem" }}>
+//       <img src="" className="card-img-top" alt="..." />
+//       <div className="card-body">
+//         <p className="card-text">
+//           Some quick example text to build on the card title and make up the
+//           bulk of the card's content.
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+function Copyright(props) {
   return (
-    <BrowserRouter>
-      <div>
-        <Routes>
-          {/* <Route path="/home">
-            <Route index element={<mainPage />} />
-          </Route>
-          <Route path="/animelist">
-            <Route element={<animelistPage />} />
-          </Route> */}
-          {/* <Route path="/animedetail">
-            <Route element={<Cards />} />
-          </Route> */}
-          <Route path="/SignIn">
-            <Route element={<SignIn />} />
-          </Route>
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
   );
 }
 
-// import React, { Component } from "react";
-// import Card from "./Cads/CardUI";
-// import "./Cads/card-style.css";
+const theme = createTheme();
 
-// import img1 from "./assets/ash.jpeg";
-// import img2 from "./assets/vampire_hunter_d.jpg";
-// import img3 from "./assets/chainsaw.jpeg";
+export default function SignIn() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
+  };
 
-// class Cards extends Component {
-//   render() {
-//     return (
-//       <div className="container-fluid d-flex justify-content-center">
-//         <div className="row-cols-4">
-//           <div className="col-md-4">
-//             <Card imgsrc={img1} title="Pokemon" />
-//           </div>
-//           <div className="col-md-4">
-//             <Card imgsrc={img2} title="Vampire Hunter D" />
-//           </div>
-//           <div className="col-md-4">
-//             <Card imgsrc={img3} title="Chainsaw Man" />
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Cards;
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </Container>
+    </ThemeProvider>
+  );
+}
