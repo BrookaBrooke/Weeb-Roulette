@@ -1,4 +1,3 @@
-
 from fastapi import (
     Depends,
     HTTPException,
@@ -16,7 +15,9 @@ from accounts.models import (
     AccountIn,
     AccountOut,
 )
-from accounts.accounts import (
+from models.profiles import Profile
+from queries.profiles import ProfileQueries
+from accounts.queries import (
     AccountQueries,
     DuplicateAccountError
 )
@@ -55,13 +56,17 @@ async def get_token(
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
+    profile: Profile,
     request: Request,
     response: Response,
     repo: AccountQueries = Depends(),
+    profile_repo: ProfileQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
     try:
         account = repo.create(info, hashed_password)
+        profile = profile_repo.create_profile(profile)
+        profile.account = account
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -70,3 +75,24 @@ async def create_account(
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
+
+@router.get("/api/accounts")
+def get_accounts(repo: AccountQueries = Depends()):
+    return repo.all()
+
+@router.get("/api/accounts/{username}", response_model=AccountOut)
+def account_details(email: str, repo: AccountQueries = Depends()):
+    account = repo.get(email)
+    return account
+
+@router.put("/api/accounts/{username}", response_model=AccountOut)
+def account_update(id: str, account: AccountIn, repo: AccountQueries = Depends()):
+    account_out = repo.update(id, account.username, account.email, account.password)
+    if account_out is None:
+        return {"message": "Nothing was changed"}
+    return account_out
+
+@router.delete("/api/accounts/{username}")
+def account_delete(id: str, repo: AccountQueries = Depends()):
+    repo.delete(id=id)
+    return True

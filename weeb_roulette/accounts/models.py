@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
-from typing import List
+
 
 class PydanticObjectId(ObjectId):
     @classmethod
@@ -17,23 +17,17 @@ class PydanticObjectId(ObjectId):
         return value
 
 class AccountIn(BaseModel):
+    username: str
     email: str
     password: str
-    full_name: str
 
 class Account(AccountIn):
     id: PydanticObjectId
-    roles: List[str]
 
 class AccountOut(BaseModel):
     id: str
+    username: str
     email: str
-    full_name: str
-    roles: List[str]
 
 class AccountPassword(AccountOut):
     password: str
-
-class SessionOut(BaseModel):
-    jti: str
-    account_id: str
