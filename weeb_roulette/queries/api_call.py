@@ -11,9 +11,7 @@ def get_anime(id):
 
 def get_anime_list():
     headers = {"Accept": "application/vnd.api+json", "Content-Type": "application/vnd.api+json"}
-    url = "https://kitsu.io/api/edge/anime/"
+    url = "https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=${0}"
     response = requests.get(url, headers)
     content = json.loads(response.content)
     return content
-
-
