@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import DetailsThumb from "./animeComs/Details.Thumbs";
+import "../App.css";
+import DetailsThumb from "./Details.Thumbs";
 
-class App extends React.Component {
+class AnimeDetail extends React.Component {
   state = {
     products: [
       {
@@ -68,38 +68,9 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default AnimeDetail;
 
 // #this is a break point
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import mainPage from "./animeComs/mainPage";
-// import AnimeList from "./animeComs/animelistPage";
-// import CardUI from "./Cads/CardUI";
-// import SignIn from "./SignIn/SignIn";
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <div>
-//         <Routes>
-//           {/* <Route path="/home">
-//             <Route index element={<mainPage />} />
-//           </Route>
-//           <Route path="/animelist">
-//             <Route element={<animelistPage />} />
-//           </Route> */}
-//           {/* <Route path="/animedetail">
-//             <Route element={<Cards />} />
-//           </Route> */}
-//           <Route path="/SignIn">
-//             <Route element={<SignIn />} />
-//           </Route>
-//         </Routes>
-//       </div>
-//     </BrowserRouter>
-//   );
-// }
 
 // import React, { Component } from "react";
 // import Card from "./Cads/CardUI";
