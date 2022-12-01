@@ -1,5 +1,4 @@
 from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, PostList
-import pymongo, os
 from db import Queries
 from bson.objectid import ObjectId
 

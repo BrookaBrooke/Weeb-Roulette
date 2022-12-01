@@ -26,6 +26,16 @@ class ProfileQueries(Queries):
         props["id"] = str(props["_id"])
         return Profile(**props)
 
+    def all(self) -> list[Profile]:
+        props = self.collection.find()
+        if not props:
+            return None
+        results = []
+        for prop in props:
+            prop["id"] = str(prop["_id"])
+            results.append(Profile(**prop))
+        return results
+
     def update(self, id: str, bio: str, signature: str, city: str, state: str):
         self.collection.update_one(
             {"_id": ObjectId(id)},
