@@ -38,7 +38,7 @@ class PostIn(BaseModel):
 class PostOut(PostIn):
     id: str
     thread_id: str
-    author: AccountOut
+    author: str
     content: str
     posted: datetime | None = datetime
     edited: bool | None = False
@@ -62,7 +62,6 @@ class ThreadOut(ThreadIn):
     date_created: datetime | None = datetime
     content: str
     last_updated: datetime | None = datetime
-    author: AccountOut
     number_of_replies: int | None = 0
     likes: int | None = 0
     dislikes: int | None = 0

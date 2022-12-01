@@ -1,5 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Response
 from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, ThreadList
+from models.profiles import Profile
+from accounts.models import AccountOut
 from queries.forums import ThreadQueries, PostQueries
 from token_auth import get_current_user
 from routers.sockets import socket_manager
@@ -16,15 +18,17 @@ not_authorized = HTTPException(
 
 @router.post("/threads", response_model=ThreadOut)
 async def create_thread(
+    profile_id: str,
     thread: ThreadIn,
     repo: ThreadQueries = Depends(),
     # account: dict = Depends(authenticator.get_current_account_data),
     ):
     # if "user" not in account.roles:
     #     raise not_authorized
-    thread = repo.create(thread)
+    thread_request = ThreadIn(profile_id = profile_id, title = thread.title, content = thread.content)
+    thread_request = repo.create(thread_request)
     # await socket_manager.broadcast_refetch()
-    return thread
+    return thread_request
 
 
 @router.get("/threads", response_model=ThreadList)
@@ -59,11 +63,26 @@ async def create_post(
     post_request = repo.create(post_request)
     return post_request
 
-# @router.get("/forum_threads", response_model=Thread)
-# def forum_threads(id: int):
-#     data = db.all(Thread.id)
-#     return data
+@router.delete("/threads/{id}", response_model=bool)
+async def delete_thread(
+    id: str,
+    repo: ThreadQueries = Depends(),
+    # account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    # account = AccountOut(**account_data)
+    # if "user" not in account.roles:
+    #     raise not_authorized
+    repo.delete_thread(id=id)
+    return True
 
-# @router.get("/posts", response_model=Post)
-# def posts():
-#     data = db.all()
+@router.put("/update_thread/{id}", response_model=ThreadOut)
+def update_thread(
+    id: str,
+    thread: ThreadOut,
+    response: Response,
+    repo: ThreadQueries = Depends(),
+):
+    record = repo.update_thread(id, thread.content)
+    if record is None:
+        response.status_code = 404
+    return record

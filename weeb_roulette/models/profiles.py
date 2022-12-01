@@ -12,7 +12,7 @@ class ProfileIn(BaseModel):
 
 class Profile(ProfileIn):
     id: str
-    account: AccountOut
+    account_id: str | None = None
     animequeues: list[AnimeQueue] | None = []
     threads: list[ThreadOut] | None = []
 

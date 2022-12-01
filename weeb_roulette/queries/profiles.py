@@ -48,3 +48,13 @@ class ProfileQueries(Queries):
             }
         )
         return Profile(id=id, bio=bio, signature=signature, city=city, state=state)
+
+    def update_account_id(self, id: str, account_id: str):
+        self.collection.update_one(
+            {"_id": ObjectId(id)},
+            {"$set" : {
+                "account_id" : account_id,
+                }
+            }
+        )
+        return Profile(id=id, account_id=account_id)

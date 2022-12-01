@@ -1,4 +1,4 @@
-from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, PostList
+from models.forums import ThreadIn, ThreadOut, PostIn, PostOut
 from db import Queries
 from bson.objectid import ObjectId
 
@@ -58,6 +58,20 @@ class ThreadQueries(Queries):
             i = ThreadOut(**thread)
             threads.append(i)
         return threads
+
+    def delete_thread(self, id: str):
+        self.collection.delete_one(
+            {
+                "_id" : ObjectId(id)
+            }
+        )
+
+    def update_thread(self, id: str, content: str):
+        self.collection.update_one(
+            {"_id": ObjectId(id)},
+            {"$set" : {"content" : content}}
+        )
+        return ThreadOut(id=id, content=content)
 
 
 class PostQueries(Queries):
