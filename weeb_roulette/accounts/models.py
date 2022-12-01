@@ -16,6 +16,11 @@ class PydanticObjectId(ObjectId):
                 raise ValueError(f"Not a valid object id: {value}")
         return value
 
+class SessionOut(BaseModel):
+    jti: str
+    account_id: str
+
+
 class AccountIn(BaseModel):
     username: str
     email: str
@@ -23,11 +28,13 @@ class AccountIn(BaseModel):
 
 class Account(AccountIn):
     id: PydanticObjectId
+    roles: list[str]
 
 class AccountOut(BaseModel):
     id: str
     username: str
     email: str
+    roles: list[str]
 
 class AccountPassword(AccountOut):
     password: str
