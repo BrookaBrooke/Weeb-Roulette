@@ -15,3 +15,6 @@ class Profile(ProfileIn):
     account: AccountOut
     animequeues: list[AnimeQueue] | None = []
     threads: list[ThreadOut] | None = []
+
+class ProfileList(BaseModel):
+    profiles: list[Profile]

@@ -17,11 +17,11 @@ class PydanticObjectId(ObjectId):
         return value
 
 class AnimeQueueIn(BaseModel):
-    name: str
-    profile_id: str
+    name: str | None = None
+    profile_id: str | None = None
 
 class AnimeQueue(AnimeQueueIn):
-    id: str
+    id: str | None = None
     anime_ids: list[str] | None = []
 
 class AnimeIdRequest(BaseModel):
