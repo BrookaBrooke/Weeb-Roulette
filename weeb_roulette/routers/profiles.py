@@ -9,11 +9,11 @@ from fastapi import (
 from jwtdown_fastapi.authentication import Token
 from accounts.authenticator import authenticator
 
-from models.profiles import Profile, ProfileIn
+from models.profiles import Profile, ProfileList
 from queries.profiles import ProfileQueries
 from accounts.queries import AccountQueries
 from queries.forums import ThreadQueries
-from queries.animequeue import AnimeQueueQueries
+from queries.anime import AnimeQueueQueries
 
 router = APIRouter()
 
@@ -24,7 +24,7 @@ not_authorized = HTTPException(
 )
 
 
-@router.get("/{profile_id}", response_model=Profile)
+@router.get("/profiles/{profile_id}", response_model=Profile)
 def get_profile(
     profile_id: str,
     repo: ProfileQueries = Depends(),
@@ -33,4 +33,12 @@ def get_profile(
     ):
 
     animequeues = anime_repo.get_by_profile(profile_id)
-    threads = forum_repo.get
+    threads = forum_repo.get_by_profile(profile_id)
+    profile = repo.get(profile_id)
+    profile.animequeues = animequeues
+    profile.threads = threads
+    return profile
+
+@router.get("/profiles", response_model=ProfileList)
+def get_profiles(repo: ProfileQueries = Depends()):
+    return ProfileList(profiles = repo.all())

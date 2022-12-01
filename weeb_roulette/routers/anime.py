@@ -83,15 +83,17 @@ def update_queue_name(
 #create new anime queue
 @router.post("/anime_queues", response_model=AnimeQueue)
 async def create_anime_queue(
-    animequeues: AnimeQueueIn,
+    profile_id: str,
+    animequeue: AnimeQueueIn,
     repo: AnimeQueueQueries = Depends(),
     #  account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     # account = AccountOut(**account_data)
     # if "user" not in account.roles:
     #      raise not_authorized
-    animequeues = repo.create_queue(animequeues)
-    return animequeues
+    animequeue_request = AnimeQueueIn(profile_id = profile_id, name = animequeue.name)
+    animequeue_request = repo.create_queue(animequeue_request)
+    return animequeue_request
 
 #delete anime queue
 @router.delete("/anime_queues/{id}", response_model=bool)
