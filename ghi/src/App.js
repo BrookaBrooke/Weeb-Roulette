@@ -5,6 +5,7 @@ import AnimeList from "./animeComs/animelistPage";
 import AnimeDetail from "./animeComs/animeDetail";
 import CardUI from "./Cads/CardUI";
 import SignIn from "./SignIn/SignIn";
+import SignUp from "./SignUp/SignUp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           {/* <Route path="/animelist" element={<AnimeList />} /> */}
           {/* <Route path="/animedetail" element={<CardUI />} /> */}
           <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </div>
     </BrowserRouter>
