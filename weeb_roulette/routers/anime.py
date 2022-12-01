@@ -26,15 +26,22 @@ def get_anime_detail(id):
     data = get_anime(id)
     return data
 
-#getting all anime queues that are attached to a specific profile
-#Pulls all anime queues in db currently. Needs to pull queues based off profile
+
+#Pulls all anime queues in db currently
 @router.get("/anime_queues")
-def get_anime_queues(repo: AnimeQueueQueries = Depends()):
+def get_all_anime_queues(repo: AnimeQueueQueries = Depends()):
     return AnimeQueueList(animequeues=repo.get_queues())
+
+
+#getting all anime queues that are attached to a specific profile
+@router.get("/anime_queues/{id}")
+def get_anime_queues_for_profile(profile_id: str, repo: AnimeQueueQueries = Depends()):
+    return AnimeQueueList(animequeues=repo.get_by_profile(profile_id))
+
 
 #getting individual queues attached to a specific profile
 @router.get("/anime_queue/{id}", response_model=AnimeQueue)
-def get_anime_queue(
+def get_anime_queue_for_profile(
     id: str,
     repo: AnimeQueueQueries = Depends()
 ):
