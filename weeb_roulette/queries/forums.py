@@ -49,6 +49,17 @@ class ThreadQueries(Queries):
         props["id"] = str(props["_id"])
         return ThreadOut(**props)
 
+    def get_by_profile(self, profile_id: str) -> list[ThreadOut]:
+        props = self.collection.find({"profile_id" : profile_id})
+        if not props:
+            return None
+        threads = []
+        for thread in props:
+            thread["id"] = str(thread["_id"])
+            i = ThreadOut(**thread)
+            threads.append(i)
+        return threads
+
 
 class PostQueries(Queries):
     DB_NAME = "weeb_roulette"

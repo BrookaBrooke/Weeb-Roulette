@@ -13,7 +13,7 @@ from models.profiles import Profile, ProfileIn
 from queries.profiles import ProfileQueries
 from accounts.queries import AccountQueries
 from queries.forums import ThreadQueries
-from queries.animequeue import AnimeQueueQueries
+from queries.anime import AnimeQueueQueries
 
 router = APIRouter()
 
