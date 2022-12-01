@@ -2,6 +2,8 @@ import React from "react";
 import SideBar from "../navData/sidebar/nav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "../navData/navBar/nav";
+import MiniDrawer from "../navData/sidebar/nav";
+
 //import Navbar from "../navBar/nav";
 
 function MainPage() {
@@ -10,9 +12,7 @@ function MainPage() {
       <div></div>
       <NavBar></NavBar>
       <div>
-        <SideBar>
-          <Route path="./animelistPage" component="AnimeList" />
-        </SideBar>
+        <MiniDrawer></MiniDrawer>
       </div>
     </div>
   );
