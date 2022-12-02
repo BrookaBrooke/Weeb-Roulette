@@ -3,9 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./animeComs/mainPage";
 import AnimeList from "./animeComs/animelistPage";
 import AnimeDetail from "./animeComs/animeDetail";
-import CardUI from "./Cads/CardUI";
+// import CardUI from "./Cads/CardUI";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp/SignUp";
+import ListPage from "./animeComs/mylistPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           {/* <Route path="/animedetail" element={<CardUI />} /> */}
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/ListPage" element={<ListPage />} />
         </Routes>
       </div>
     </BrowserRouter>
