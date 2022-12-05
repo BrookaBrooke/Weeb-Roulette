@@ -38,7 +38,7 @@ class PostIn(BaseModel):
 class PostOut(PostIn):
     id: str
     thread_id: str
-    author: str
+    author: str | None = None
     content: str
     posted: datetime | None = datetime
     edited: bool | None = False
@@ -69,3 +69,6 @@ class ThreadOut(ThreadIn):
 
 class ThreadList(BaseModel):
     threads: list[ThreadOut]
+
+class PostIdRequest(BaseModel):
+    post_id: str

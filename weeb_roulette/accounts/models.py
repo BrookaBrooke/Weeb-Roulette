@@ -1,5 +1,5 @@
 from bson.objectid import ObjectId
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, constr
 
 
 class PydanticObjectId(ObjectId):
@@ -23,7 +23,7 @@ class SessionOut(BaseModel):
 
 class AccountIn(BaseModel):
     username: str
-    email: str
+    email: constr(to_lower=True)
     password: str
 
 class Account(AccountIn):
