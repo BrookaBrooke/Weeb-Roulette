@@ -4,8 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./bloat/reportWebVitals";
 import Card from "./Cads/Cards";
+<<<<<<< HEAD
 import { store } from '/app/src/store/store'
 import { Provider } from 'react-redux'
+=======
+import store from "./store/store";
+import { Provider } from "react-redux";
+>>>>>>> 6c54ddd4fe4a1e468ef9c36a2541a80069918afa
 
 // import "../node_modules/react-bootstrap/dist/css/bootstrap";
 
@@ -15,7 +20,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+<<<<<<< HEAD
     <App />
+=======
+      < App />
+>>>>>>> 6c54ddd4fe4a1e468ef9c36a2541a80069918afa
     </Provider>
   </React.StrictMode>
 );

@@ -31,12 +31,12 @@ async def create_thread(
     return thread_request
 
 
-@router.get("/threads", response_model=ThreadList)
+@router.get("/threads")
 def get_threads(repo: ThreadQueries = Depends()):
     return ThreadList(threads=repo.get_all())
 
 
-@router.get("/threads/{thread_id}", response_model=ThreadOut)
+@router.get("/thread/{id}", response_model=ThreadOut)
 def get_thread(
     thread_id = str,
     repo: ThreadQueries = Depends(),
@@ -47,6 +47,10 @@ def get_thread(
     thread.posts = posts
     return thread
 
+
+@router.get("/threads/{id}")
+def get_threads_for_profile(profile_id: str, repo: ThreadQueries = Depends()):
+    return ThreadList(threads=repo.get_by_profile(profile_id))
 
 @router.post("/threads/{thread_id}/posts", response_model=PostOut)
 async def create_post(
@@ -83,6 +87,30 @@ def update_thread(
     repo: ThreadQueries = Depends(),
 ):
     record = repo.update_thread(id, thread.content)
+    if record is None:
+        response.status_code = 404
+    return record
+
+@router.delete("/threads/{id}/posts", response_model=bool)
+async def delete_post(
+    id: str,
+    repo: PostQueries = Depends(),
+    # account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    # account = AccountOut(**account_data)
+    # if "user" not in account.roles:
+    #     raise not_authorized
+    repo.delete_post(id=id)
+    return True
+
+@router.put("/update_post/{id}", response_model=PostOut)
+def update_post(
+    id: str,
+    post: PostOut,
+    response: Response,
+    repo: PostQueries = Depends(),
+):
+    record = repo.update_post(id, post.content)
     if record is None:
         response.status_code = 404
     return record

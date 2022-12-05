@@ -63,7 +63,6 @@ async def create_account(
     profile_repo: ProfileQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
-    # thread_id is getting saved and is correct according to the print statement when creating an account, but for some reason its not setting it properly when we go to look at profiles.
     try:
         account = repo.create(info, hashed_password)
         profile = profile_repo.create_profile(profile)
