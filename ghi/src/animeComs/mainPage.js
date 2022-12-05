@@ -1,3 +1,7 @@
+import React from 'react';
+
+class MainPage extends React.Component {
+
 import React from "react";
 import SideBar from "../navData/sidebar/nav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
