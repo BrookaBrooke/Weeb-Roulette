@@ -44,26 +44,40 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Started to make headway into routers and queries for forums.
+
 ## Nov 24
 
 Today, I worked on:
+
+1. Holiday Break
 
 ## Nov 25
 
 Today, I worked on:
 
+1. Holiday Break
+
 ## Nov 28
 
 Today, I worked on:
+
+1. More routers and queries work for forums, did a big merge into main.
 
 ## Nov 29
 
 Today, I worked on:
 
+1. Created additional forum routers/queries
+
 ## Nov 30
 
 Today, I worked on:
 
+1. Added get routers for Posts and Threads with queries, did final edits to forums, and then merged to main.
+
 ## Dec 01
 
 Today, I worked on:
+
+1. Added get by profile method for threads, merged to main, and then finished the backend for forums.
