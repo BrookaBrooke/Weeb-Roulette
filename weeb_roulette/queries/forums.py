@@ -41,8 +41,7 @@ class ThreadQueries(Queries):
         return [ThreadOut(**thread) for thread in threadPropsList]
 
     def get(self, id: str) -> ThreadOut:
-        x = ObjectId(id)
-        props = self.collection.find_one({"_id": x})
+        props = self.collection.find_one({"_id": ObjectId(id)})
         if not props:
             return None
         props["id"] = str(props["_id"])
@@ -84,9 +83,9 @@ class PostQueries(Queries):
         props["id"] = str(props["_id"])
         return PostOut(**props)
 
-    def delete(self, posts: str):
+    def delete_post(self, id: str):
         self.collection.delete_one(
-            {"posts": ObjectId(posts)}
+            {"_id": ObjectId(id)}
         )
 
     def get(self, id: str) -> PostOut:
@@ -106,3 +105,10 @@ class PostQueries(Queries):
             x = PostOut(**post)
             posts.append(x)
         return posts
+
+    def update_post(self, id: str, content: str):
+        self.collection.update_one(
+            {"_id": ObjectId(id)},
+            {"$set" : {"content" : content}}
+        )
+        return PostOut(id=id, content=content)

@@ -51,13 +51,13 @@ class PostList(BaseModel):
 class ThreadIn(BaseModel):
     title: str
     content: str
-    profile_id: str
+    profile_id: str | None = None
 
 # class Thread(ThreadIn):
 #     id: PydanticObjectId
 
 class ThreadOut(ThreadIn):
-    id: str
+    id: str | None = None
     title: str
     date_created: datetime | None = datetime
     content: str
