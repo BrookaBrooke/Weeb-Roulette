@@ -50,13 +50,19 @@ Today, I worked on:
 
 Today, I worked on:
 
+Break
+
 ## Nov 25
 
 Today, I worked on:
 
+Break
+
 ## Nov 26
 
 Today, I worked on:
+
+Break
 
 ## Nov 27
 
@@ -74,13 +80,19 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Helped make routers and queries for Accounts collection  
+
 ## Nov 30
 
 Today, I worked on:
 
+1. Integrated routes between the different collections we have in our project to make sure that nested models all populated the right data in swagger.
+
 ## Dec 01
 
 Today, I worked on:
+
+1. Finished up the routers and queries for all our collections. Made sure everything populated the right data on swagger. Switching over to front-end. 
 
 ## Dec 02
 
