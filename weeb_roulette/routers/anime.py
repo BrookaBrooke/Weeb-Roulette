@@ -21,6 +21,7 @@ def get_anime_lists(id):
     data = get_anime_list(id)
     return data
 
+#get all details for an anime
 @router.get("/anime_detail/{id}")
 def get_anime_detail(id):
     data = get_anime(id)
