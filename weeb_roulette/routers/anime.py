@@ -93,11 +93,11 @@ async def create_anime_queue(
     profile_id: str,
     animequeue: AnimeQueueIn,
     repo: AnimeQueueQueries = Depends(),
-    #  account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    # account = AccountOut(**account_data)
-    # if "user" not in account.roles:
-    #      raise not_authorized
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+         raise not_authorized
     animequeue_request = AnimeQueueIn(profile_id = profile_id, name = animequeue.name)
     animequeue_request = repo.create_queue(animequeue_request)
     return animequeue_request
@@ -107,10 +107,10 @@ async def create_anime_queue(
 async def delete_user_queue(
     id: str,
     repo: AnimeQueueQueries = Depends(),
-    # account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    # account = AccountOut(**account_data)
-    # if "user" not in account.roles:
-    #     raise not_authorized
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+        raise not_authorized
     repo.delete_queue(id=id)
     return True
