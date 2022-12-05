@@ -10,12 +10,11 @@ import { Provider } from "react-redux";
 // import "../node_modules/react-bootstrap/dist/css/bootstrap";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// const root = ReactDOM.createRoot(Card.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      < App />
+      <App />
     </Provider>
   </React.StrictMode>
 );

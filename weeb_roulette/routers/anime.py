@@ -15,12 +15,13 @@ not_authorized = HTTPException(
     detail="Invalid authentication credentials",
     headers={"WWW-Authenticate": "Bearer"},
 )
-
+#get the 20 anime from 3rd party api
 @router.get("/anime_list")
 def get_anime_lists():
     data = get_anime_list()
     return data
 
+#get all details for an anime
 @router.get("/anime_detail/{id}")
 def get_anime_detail(id):
     data = get_anime(id)
