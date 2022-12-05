@@ -3,7 +3,6 @@ from models.forums import ThreadIn, ThreadOut, PostIn, PostOut, ThreadList
 from models.profiles import Profile
 from accounts.models import AccountOut
 from queries.forums import ThreadQueries, PostQueries
-from token_auth import get_current_user
 from routers.sockets import socket_manager
 from accounts.authenticator import authenticator
 
@@ -21,10 +20,11 @@ async def create_thread(
     profile_id: str,
     thread: ThreadIn,
     repo: ThreadQueries = Depends(),
-    # account: dict = Depends(authenticator.get_current_account_data),
-    ):
-    # if "user" not in account.roles:
-    #     raise not_authorized
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+        raise not_authorized
     thread_request = ThreadIn(profile_id = profile_id, title = thread.title, content = thread.content)
     thread_request = repo.create(thread_request)
     # await socket_manager.broadcast_refetch()
@@ -41,7 +41,7 @@ def get_thread(
     thread_id = str,
     repo: ThreadQueries = Depends(),
     post_repo: PostQueries = Depends(),
-    ):
+):
     posts = post_repo.get_by_thread(thread_id)
     thread = repo.get(thread_id)
     thread.posts = posts
@@ -53,12 +53,12 @@ async def create_post(
     thread_id: str,
     post: PostIn,
     repo: PostQueries = Depends(),
-    # account: dict = Depends(get_current_user),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    # if "user" not in account.roles:
-    #     raise not_authorized
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+        raise not_authorized
     # await socket_manager.broadcast_refetch()
-    # , account_id=account.id
     post_request = PostIn(thread_id=thread_id, content=post.content)
     post_request = repo.create(post_request)
     return post_request
@@ -67,11 +67,11 @@ async def create_post(
 async def delete_thread(
     id: str,
     repo: ThreadQueries = Depends(),
-    # account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    # account = AccountOut(**account_data)
-    # if "user" not in account.roles:
-    #     raise not_authorized
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+        raise not_authorized
     repo.delete_thread(id=id)
     return True
 
