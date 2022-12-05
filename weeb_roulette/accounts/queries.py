@@ -29,9 +29,11 @@ class AccountQueries(Queries):
             results.append(Account(**prop))
         return results
 
-    def create(self, info: AccountIn, hashed_password: str) -> Account:
+    def create(self, info: AccountIn, hashed_password: str, roles=["user"]) -> Account:
+        self.collection.create_index("email", unique=True)
         props = info.dict()
         props["password"] = hashed_password
+        props["roles"] = roles
         try:
             self.collection.insert_one(props)
         except DuplicateKeyError:

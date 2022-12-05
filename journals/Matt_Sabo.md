@@ -22,3 +22,24 @@ I played Pokemon: Scarlet all day, no work done :P
 11/21/2022
 created weeb-roulette/accounts and the files within. made Authentication functional. Will work on more in the future.
 added Accounts.py in the weeb-roulette/routers directory.
+
+11/22/2022
+Authentication completed. Can create accounts, get accounts, and create/delete tokens on login
+
+11/23/2022
+studied mongodb lecture/content on Learn.
+
+11/28/2022
+changed DB name to match our app name. Added correct collections to our queries.
+
+11/29/2022
+username attached to account, Profile models created, profile queries created.
+
+11/30/2022
+client.py added, back-end just about finished, profile routers/queries completed.
+
+12/01/2022
+back-end finished, roles added to accounts "users", Forums/Anime attached to Profile.
+
+12/02/2022
+Watched the webhooks videos on Learn in preparation to write our front-end using webhooks and redux tool-kit

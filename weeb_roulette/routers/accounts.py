@@ -63,7 +63,6 @@ async def create_account(
     profile_repo: ProfileQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
-    # thread_id is getting saved and is correct according to the print statement when creating an account, but for some reason its not setting it properly when we go to look at profiles.
     try:
         account = repo.create(info, hashed_password)
         profile = profile_repo.create_profile(profile)
@@ -88,7 +87,14 @@ def account_details(email: str, repo: AccountQueries = Depends()):
     return account
 
 @router.put("/api/accounts/{username}", response_model=AccountOut)
-def account_update(id: str, account: AccountIn, repo: AccountQueries = Depends()):
+def account_update(
+    id: str,
+    account: AccountIn,
+    repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)):
+    account = AccountOut(**account_data)
+    if "user" not in account.roles:
+        raise not_authorized
     account_out = repo.update(id, account.username, account.email, account.password)
     if account_out is None:
         return {"message": "Nothing was changed"}

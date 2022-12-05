@@ -22,7 +22,7 @@ class AnimeQueueQueries(Queries):
 
 
     def add_queue_item(self, id:str, anime_id:str):
-        props = self.collection.update_one(
+        self.collection.update_one(
             {"_id": ObjectId(id)},
             {"$push": { "anime_ids" : anime_id  }}
         )
@@ -30,7 +30,7 @@ class AnimeQueueQueries(Queries):
 
 
     def delete_queue_item(self, id: str, anime_id: str):
-        props = self.collection.update_one(
+        self.collection.update_one(
             {"_id": ObjectId(id)},
             {"$pull": { "anime_ids" : anime_id  }}
         )
