@@ -38,7 +38,7 @@ const FrontPage = () => {
             <div className="carousel-item active">
               <img
                 src="https://www.nicepng.com/png/detail/683-6833498_weeb-png.png"
-                className="d-block w-100"
+                className="d-block w-25"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -51,7 +51,7 @@ const FrontPage = () => {
             <div className="carousel-item">
               <img
                 src="https://i.guim.co.uk/img/media/66e444bff77d9c566e53c8da88591e4297df0896/120_0_1800_1080/master/1800.png?width=465&quality=85&dpr=1&s=none"
-                className="d-block w-100"
+                className="d-block w-25"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -64,7 +64,7 @@ const FrontPage = () => {
             <div className="carousel-item">
               <img
                 src="https://www.digitaltrends.com/wp-content/uploads/2022/08/Chainsaw-Man-trailer.jpg?fit=720%2C405&p=1"
-                className="d-block w-100"
+                className="d-block w-25"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
