@@ -14,7 +14,7 @@ function App() {
         <Routes>
           {/* <Route path="/home" index element={<MainPage />} /> */}
           <Route path="/detail" index element={<AnimeDetail />} />
-          <Route path="/animelist" element={<AnimeList />} />
+          {/* <Route path="/animelist" element={<AnimeList />} /> */}
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/ListPage" element={<ListPage />} />
