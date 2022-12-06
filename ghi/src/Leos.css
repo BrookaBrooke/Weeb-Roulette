@@ -1,0 +1,100 @@
+/* // import React from "react";
+
+// export default function frontPage() {
+//   return (
+//     <div className="container">
+//       <div className="header">
+//         <h1>Anime</h1>
+//         <div className="main">
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th scope="col">anime</th>
+//                 <th scope="col">anime</th>
+//                 <th scope="col">anime</th>
+//                 <th scope="col">anime</th>
+//                 <th scope="col">anime</th>
+//               </tr>
+//             </thead>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// } */
+
+
+
+
+import React from "react";
+
+export default function frontPage() {
+  return (
+    <div>
+      <div className="table-wrapper">
+        <table>
+          <tbody>
+            <tr>
+              <th>1h</th>
+              <th>2h</th>
+              <th>3h</th>
+              <th>4h</th>
+              <th>5h</th>
+              <th>6h</th>
+              <th>7h</th>
+              <th>8h</th>
+              <th>9h</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button className="left">&lt;</button>
+      <button className="right">&gt;</button>
+    </div>
+  );
+}
+
