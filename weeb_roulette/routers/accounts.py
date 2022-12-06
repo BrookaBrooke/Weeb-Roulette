@@ -91,7 +91,8 @@ def account_update(
     id: str,
     account: AccountIn,
     repo: AccountQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data)):
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise not_authorized

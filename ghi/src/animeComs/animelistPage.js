@@ -5,23 +5,30 @@ import Pagination from '/app/src/animeComs/animeComsImport/Pagination'
 const AnimeList = () => {
   // const { data } = useGetAnimeQuery();
   const [animes, setAnimes] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const[currentPage, setCurrentPage] = useState(1);
-  const[animePerPage, setAnimesPerPage] = useState(20);
+  const[currentPage, setCurrentPage] = useState();
+  const[animePerPage] = useState(20);
 
   const fetchAnimes = async () => {
-    setLoading(true);
-    const url = `http://localhost:8000/anime_list/${currentPage - 1}`;
+    const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
     setAnimes(data.data);
-    setLoading(false);
   };
 
-  const indexOfLastAnime = currentPage * animePerPage;
-  const indexOfFirstAnime = indexOfLastAnime - animePerPage;
-  const currentAnime = animes.slice(indexOfFirstAnime, indexOfLastAnime);
+  
+
+  const addToQueue = async () => {
+    const url = `http://localhost:8000/add_anime_to_queue/${0}`;
+  }
+
+  // const fetchAnimes = async () => {
+  //   const url = `http://localhost:8000/anime_list/${0}`;
+  //   const result = await fetch(url);
+  //   const data = await result.json();
+  //   console.log(data);
+  //   setAnimes(data.data);
+  // };
 
   useEffect(() => {
     fetchAnimes();
@@ -39,6 +46,9 @@ const AnimeList = () => {
       </div>
     )
   }
+
+  //Change Page
+  const paginate = pageNumber => setCurrentPage(pageNumber); 
 
   return (
     <div className="container">
@@ -67,7 +77,13 @@ const AnimeList = () => {
           })}
         </tbody>
       </table>
-      <Pagination animePerPage={animePerPage} totalAnimes={100}/>
+      <Pagination animePerPage={animePerPage} totalAnimes={200} paginate={paginate}/>
+      {/* <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={data.length}
+        pageSize={PageSize}
+        onPageChange={page => setCurrentPage(page)}/> */}
     </div>
   );
 };

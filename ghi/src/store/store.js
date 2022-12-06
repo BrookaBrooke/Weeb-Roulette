@@ -4,7 +4,7 @@ import { accountSlice } from './accountSlice';
 
 export const store = configureStore({
     reducer: {
-        [apiSlice.reducerPath]: apiSlice.reducer,
+        [accountSlice.reducerPath]: accountSlice.reducer,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware()
