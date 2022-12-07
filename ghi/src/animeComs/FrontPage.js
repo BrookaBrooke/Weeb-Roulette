@@ -26,7 +26,7 @@ const FrontPage = () => {
               <AnimeCard
                 title={i.attributes.canonicalTitle}
                 description={i.attributes.description}
-                image={i.attributes.coverImage?.tiny}
+                image={i.attributes.posterImage?.tiny}
               />
             </div>
             {/* <h1>{idx}</h1> */}
