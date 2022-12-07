@@ -16,9 +16,9 @@ not_authorized = HTTPException(
     headers={"WWW-Authenticate": "Bearer"},
 )
 #get the 20 anime from 3rd party api
-@router.get("/anime_list")
-def get_anime_lists():
-    data = get_anime_list()
+@router.get("/anime_list/{id}")
+def get_anime_lists(id):
+    data = get_anime_list(id)
     return data
 
 #get all details for an anime

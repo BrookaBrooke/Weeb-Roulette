@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import mainPage from "./animeComs/mainPage";
+import MainPage from "./animeComs/mainPage";
 import AnimeList from "./animeComs/animelistPage";
 // import AnimeDetail from "./animeComs/animeDetail";
 import AnimeDetail from "./animeComs/animeDetail";

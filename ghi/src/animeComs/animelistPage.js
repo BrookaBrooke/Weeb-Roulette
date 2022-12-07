@@ -4,7 +4,7 @@ const AnimeList = () => {
   const [animes, setAnimes] = useState([]);
 
   const fetchAnimes = async () => {
-    const url = "http://localhost:8000/anime_list";
+    const url = `http://localhost:8000/anime_list/${0}`;
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
@@ -25,7 +25,7 @@ const AnimeList = () => {
           </tr>
         </thead>
         <tbody>
-          {animes.map((anime) => {
+          {animes?.map((anime) => {
             return (
               <tr key={anime.id}>
                 <td className="model-text">
