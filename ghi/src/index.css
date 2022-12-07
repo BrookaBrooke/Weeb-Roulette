@@ -1,4 +1,4 @@
-* {
+body {
   padding: 0;
   box-sizing: border-box;
   margin: 0;
@@ -7,9 +7,22 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://images4.alphacoders.com/973/973967.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.extra {
+  width: 1200px;
+  height: 1200px;
+  overflow-y: scroll;
+}
+
+.card {
+  background: transparent;
 }

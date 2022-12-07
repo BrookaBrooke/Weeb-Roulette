@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useGetAnimeQuery } from '/app/src/store/animeApi'
-import Pagination from '/app/src/animeComs/animeComsImport/Pagination'
+// import { useGetAnimeQuery } from '/app/src/store/animeApi'
+import Pagination from '/app/src/animeComs/paginate'
 
 const AnimeList = (item) => {
   // const { data } = useGetAnimeQuery();
   const [animes, setAnimes] = useState([]);
-  const [detail, setDetail] = useState([]);
-  const [addtoqueue, setQueue] = useState([])
+  // const [detail, setDetail] = useState([]);
+  // const [addtoqueue, setQueue] = useState([])
   const [currentPage, setCurrentPage] = useState();
   const [animePerPage] = useState(20);
 
@@ -27,11 +27,11 @@ const AnimeList = (item) => {
 
   // const addToQueue = async (queue_id) => {
   //   const url = `http://localhost:8000/add_anime_to_queue/${queue_id}`;
-  //   const result = await fetch(url, { 
+  //   const result = await fetch(url, {
   //     method: "PUT",
   //     headers: { "Content-Type": "application/json" },
   //     body: JSON.stringify({anime_id: id})
-  //   }) 
+  //   })
 
   // };
 
@@ -45,7 +45,7 @@ const AnimeList = (item) => {
       <div className="card">
         <div className="card_body">
           <a href="http://localhost:3000/detail/{id}" role="button">
-            <img src={props.img}/>
+            <img src={props.img} alt=""/>
           </a>
           <h2 className="card_title">{props.title}</h2>
           <p className="card_description">{props.description}</p>
@@ -56,11 +56,12 @@ const AnimeList = (item) => {
   }
 
   //Change Page
-  const paginate = pageNumber => setCurrentPage(pageNumber); 
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div className="container">
       <h1 className="header-title">List of Animes</h1>
+      <div className="extra container">
       <table className="table">
         <thead>
           <tr>
@@ -72,7 +73,7 @@ const AnimeList = (item) => {
             return (
               <tr key={anime.id}>
                 <td className="model-text">
-                  <Card 
+                  <Card
                   img={anime.attributes.posterImage.tiny}
                   title={anime.attributes.canonicalTitle}
                   description={anime.attributes.description}
@@ -85,6 +86,7 @@ const AnimeList = (item) => {
           })}
         </tbody>
       </table>
+      </div>
       <Pagination animePerPage={animePerPage} totalAnimes={200} paginate={paginate}/>
     </div>
   );

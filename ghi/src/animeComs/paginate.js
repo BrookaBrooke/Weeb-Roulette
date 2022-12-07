@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pagination = ({ animePerPage, totalAnimes, paginate}) => {
     const pageNumbers = [];
-    
+
     for(let i = 1; i <= Math.ceil(totalAnimes / animePerPage); i++) {
         pageNumbers.push(i)
     }
