@@ -22,11 +22,17 @@ const FrontPage = () => {
         console.log("hello", i);
         return (
           <>
-            <h1>{idx}</h1>
-            <h1>{i.attributes.canonicalTitle}</h1>
+            <div>
+              <AnimeCard
+                title={i.attributes.canonicalTitle}
+                description={i.attributes.description}
+                image={i.attributes.coverImage?.tiny}
+              />
+            </div>
+            {/* <h1>{idx}</h1> */}
+            {/* <h1>{i.attributes.canonicalTitle}</h1>
             <img src={i.attributes.coverImage?.tiny} />
-            <h1>{i.attributes.canonicalTitle}</h1>
-            <h1>{i.attributes.description}</h1>
+            <h1>{i.attributes.description}</h1> */}
           </>
         );
       })}
