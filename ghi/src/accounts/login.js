@@ -4,7 +4,6 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-                username: "",
                 email: "",
                 password: ""
         }
@@ -22,20 +21,11 @@ class LoginForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {
-            info: {
-                username: this.state.username,
                 email: this.state.email,
                 password: this.state.password,
-                },
-            profile: {
-                bio: "",
-                signature: "",
-                city: "",
-                state: "",
-                },
             }
 
-        const url = "http://localhost:8000/api/accounts/"
+        const url = "http://localhost:8000/token/"
         const fetchConfig = {
             method: "POST",
             body: JSON.stringify(data),
@@ -46,18 +36,10 @@ class LoginForm extends React.Component {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             this.setState({
-                info: {
-                    username: "",
                     email: "",
                     password: "",
-                    },
-                profile: {
-                    bio: "",
-                    signature: "",
-                    city: "",
-                    state: "",
-                    },
-            })
+                },
+            )
         }
     }
 

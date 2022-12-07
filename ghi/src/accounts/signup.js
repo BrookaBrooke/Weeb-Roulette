@@ -46,17 +46,9 @@ class SignupForm extends React.Component {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             this.setState({
-                info: {
                     username: "",
                     email: "",
                     password: "",
-                    },
-                profile: {
-                    bio: "",
-                    signature: "",
-                    city: "",
-                    state: "",
-                    },
             })
         }
     }
