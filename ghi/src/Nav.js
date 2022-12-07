@@ -14,25 +14,16 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            {/* <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
-            </li> */}
             <li>
               <NavDropdown id="nav-dropdown" title="Anime" menuVariant="dark">
-                <li className="nav-item">
                   <NavDropdown.Item as={Link} to="/animelist">
                     Anime List</NavDropdown.Item>
-                </li>
               </NavDropdown>
             </li>
             <li>
               <NavDropdown id="nav-dropdown" title="Account" menuVariant="dark">
-                <li className="nav-item">
                   <NavDropdown.Item as={Link} to="/signup">Sign Up</NavDropdown.Item>
-                </li>
-                <li className="nav-item">
                   <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
-                </li>
               </NavDropdown>
             </li>
           </ul>
