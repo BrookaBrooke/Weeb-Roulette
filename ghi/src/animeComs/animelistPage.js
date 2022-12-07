@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useGetAnimeQuery } from '/app/src/store/animeApi'
 import Pagination from '/app/src/animeComs/animeComsImport/Pagination'
 
-const AnimeList = () => {
+const AnimeList = (item) => {
   // const { data } = useGetAnimeQuery();
   const [animes, setAnimes] = useState([]);
-  const[currentPage, setCurrentPage] = useState();
-  const[animePerPage] = useState(20);
+  const [detail, setDetail] = useState([]);
+  const [addtoqueue, setQueue] = useState([])
+  const [currentPage, setCurrentPage] = useState();
+  const [animePerPage] = useState(20);
 
   const fetchAnimes = async () => {
     const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
@@ -16,19 +18,24 @@ const AnimeList = () => {
     setAnimes(data.data);
   };
 
-  
+  const fetchAnimeDetail = async (id) => {
+    const url = `http://localhost:8000/anime_detail/${id}`;
+    const result = await fetch(url);
+    const data = await result.json();
+    console.log(data);
+    setAnimes(data.data);
+  };
 
-  const addToQueue = async () => {
-    const url = `http://localhost:8000/add_anime_to_queue/${0}`;
-  }
+  // const addToQueue = async (queue_id) => {
+  //   const url = `http://localhost:8000/add_anime_to_queue/${queue_id}`;
+  //   const result = await fetch(url, { 
+  //     method: "PUT",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({anime_id: id})
+  //   }) 
 
-  // const fetchAnimes = async () => {
-  //   const url = `http://localhost:8000/anime_list/${0}`;
-  //   const result = await fetch(url);
-  //   const data = await result.json();
-  //   console.log(data);
-  //   setAnimes(data.data);
   // };
+
 
   useEffect(() => {
     fetchAnimes();
@@ -38,7 +45,9 @@ const AnimeList = () => {
     return(
       <div className="card">
         <div className="card_body">
-          <img src={props.img}/>
+          <a href="http://localhost:3000/detail/{id}" role="button">
+            <img src={props.img}/>
+          </a>
           <h2 className="card_title">{props.title}</h2>
           <p className="card_description">{props.description}</p>
         </div>
@@ -78,12 +87,6 @@ const AnimeList = () => {
         </tbody>
       </table>
       <Pagination animePerPage={animePerPage} totalAnimes={200} paginate={paginate}/>
-      {/* <Pagination
-        className="pagination-bar"
-        currentPage={currentPage}
-        totalCount={data.length}
-        pageSize={PageSize}
-        onPageChange={page => setCurrentPage(page)}/> */}
     </div>
   );
 };
