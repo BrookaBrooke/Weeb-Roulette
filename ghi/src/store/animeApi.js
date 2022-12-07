@@ -1,13 +1,11 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi } from '@reduxjs/toolkit/query/react'
 
 export const animeApi = createApi ({
-    redcuerPath: 'anime',
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8000',
-    }),
+    reducerPath: 'anime',
+    baseQuery: process.env.REACT_APP_DJANGO_API,
     endpoints: builder => ({
         getAnime: builder.query({
-            query: () => '/anime_list',
+            query: () => '/anime_list/0',
         }),
     }),
 });

@@ -20,10 +20,7 @@ class LoginForm extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        const data = {
-                email: this.state.email,
-                password: this.state.password,
-            }
+        const data = {...this.state}
 
         const url = "http://localhost:8000/token/"
         const fetchConfig = {

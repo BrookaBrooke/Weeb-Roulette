@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { accountSlice } from './accountSlice';
+// import { accountSlice } from './accountSlice';
+import { animeApi } from './animeApi';
 
 export const store = configureStore({
     reducer: {
-        [accountSlice.reducerPath]: accountSlice.reducer,
+        [animeApi.reducerPath]: animeApi.reducer,
+        // [accountSlice.reducerPath]: accountSlice.reducer,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware()
-            .concat(accountSlice.middleware)
+            .concat(animeApi.middleware)
     }
 })
 

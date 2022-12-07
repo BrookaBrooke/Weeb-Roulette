@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">Weeb Roulette</NavLink>
+        <NavLink className="navbar-brand" to="/">
+          <img src="https://i.postimg.cc/hP1qD8w9/DALL-E-2022-12-07-11-24-30-anime-girl-playing-roulette-digital-art.png" alt="" width="60" height="48"></img>
+        </NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
