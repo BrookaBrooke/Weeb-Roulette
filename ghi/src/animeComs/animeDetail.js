@@ -5,7 +5,7 @@ function AnimeDetail() {
   const [animes, setAnimes] = useState([]);
 
   const fetchAnimes = async () => {
-    const url = "http://localhost:8000/anime_detail/";
+    const url = "http://localhost:8000/anime_detail/1";
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
@@ -17,15 +17,15 @@ function AnimeDetail() {
   }, []); // componentDidMount
 
   return (
-    <div>
+    <div className="container">
+      <h1 className="header-title">yo</h1>
       {animes.map((anime) => {
         return (
           <tr key={anime.id}>
-            <td className="model-title">{anime.attributes.canonicalTitle}</td>
+            <h1>{anime.attributes.canonicalTitle}</h1>
           </tr>
         );
       })}
-      <h1>title</h1>
     </div>
   );
 }
