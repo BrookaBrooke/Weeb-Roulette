@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
 import AnimeList from "./animeComs/animelistPage";
-// import AnimeDetail from "./animeComs/animeDetail";
-import AnimeDetail from "./animeComs/animeDetail";
-import Nav from './Nav';
+import MainPage from "./MainPage";
+import SignupForm from "./accounts/signup";
+import LoginForm from "./accounts/login";
+import Nav from "./Nav";
+
+
 
 function App() {
   return (
@@ -11,8 +13,9 @@ function App() {
       <Nav />
       <div>
         <Routes>
-          <Route path="/home" index element={<MainPage />} />
-          <Route path="/detail" index element={<AnimeDetail />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/animelist" element={<AnimeList />} />
         </Routes>
       </div>

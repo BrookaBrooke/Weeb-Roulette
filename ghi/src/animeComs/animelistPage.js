@@ -22,7 +22,6 @@ const AnimeList = (item) => {
     const url = `http://localhost:8000/anime_detail/${id}`;
     const result = await fetch(url);
     const data = await result.json();
-    console.log(data);
     setAnimes(data.data);
   };
 

@@ -6,7 +6,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/home">Weeb Roulette</NavLink>
+        <NavLink className="navbar-brand" to="/">Weeb Roulette</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +26,10 @@ function Nav() {
             <li>
               <NavDropdown id="nav-dropdown" title="Account" menuVariant="dark">
                 <li className="nav-item">
-                  <NavDropdown.Item as={Link} to="/signin">Login</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/signup">Sign Up</NavDropdown.Item>
+                </li>
+                <li className="nav-item">
+                  <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
                 </li>
               </NavDropdown>
             </li>

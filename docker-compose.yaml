@@ -37,7 +37,19 @@ services:
       DATABASE_URL: mongodb://root:password@mongo
       DATABASE_NAME: weeb_roulette
       WAIT_HOSTS: mongo:27017
-
+  mongo-express:
+    build:
+      context: setup/mongo-express
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      WAIT_HOSTS: mongo:27017
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
   ghi:
     image: node:lts-bullseye
     command: bash -c "npm install && npm start"

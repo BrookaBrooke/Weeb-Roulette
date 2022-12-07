@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from accounts.models import AccountOut
 from models.anime import AnimeQueue
 from models.forums import ThreadOut
 from typing import Optional
