@@ -12,6 +12,22 @@ const FrontPage = () => {
     const data = await result.json();
     console.log(data);
     setAnimes(data.data);
+    if (response.ok){
+    const array = [],
+    let slideObject = {},
+    let index = 0;
+    cardData.cards.forEach((card,i) =>{
+      slideObject[index] = card;
+      if (i % 4 === 0) {
+        array.push(slideObject);
+        slideObject = {},
+        index = 0;
+      }
+      index++;
+    });
+    array.shift();
+    setHomepageCards(array);
+  }
   };
 
   useEffect(() => {
