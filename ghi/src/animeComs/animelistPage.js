@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useGetAnimeQuery } from '/app/src/store/animeApi'
 import Pagination from '/app/src/animeComs/paginate'
 import { Link } from "react-router-dom"
 
 const AnimeList = (item) => {
-  const { data, error, isLoading } = useGetAnimeQuery();
+  const { data, isLoading } = useGetAnimeQuery();
   // const [animes, setAnimes] = useState([]);
-  const [profile, setProfile] = useState([]);
-  const [queues, setQueues] = useState([]);
-  const [currentPage, setCurrentPage] = useState();
+  // const [profile, setProfile] = useState([]);
+  // const [queues, setQueues] = useState([]);
+  const [setCurrentPage] = useState();
   const [animePerPage] = useState(20);
 
   if (isLoading) {
@@ -56,7 +56,7 @@ const AnimeList = (item) => {
           <h2 className="card_title">{props.title}</h2>
           <p className="card_description">{props.description}</p>
         </div>
-        {/* <button className="card_button" onClick={ addToQueue() }>Add to List</button> */}
+        <button className="card_button">Add to List</button>
       </div>
     )
   }
@@ -76,7 +76,6 @@ const AnimeList = (item) => {
         </thead>
         <tbody>
           {data.data.map((anime) => {
-            debugger
             return (
               <tr key={anime.id}>
                 <td className="model-text">
