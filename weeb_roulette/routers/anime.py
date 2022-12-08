@@ -15,7 +15,6 @@ not_authorized = HTTPException(
     detail="Invalid authentication credentials",
     headers={"WWW-Authenticate": "Bearer"},
 )
-#get the 20 anime from 3rd party api
 @router.get("/anime_list/{id}")
 def get_anime_lists(id):
     data = get_anime_list(id)
@@ -62,7 +61,7 @@ def add_anime_to_queue(
         response.status_code = 404
     return record
 
-#remove an anime to user's queue
+#remove an anime from user's queue
 @router.put("/remove_anime_from_queue/{id}", response_model = AnimeQueue)
 def remove_anime_from_queue(
     id: str,
@@ -88,7 +87,7 @@ def update_queue_name(
         response.status_code = 404
     return record
 
-#create new anime queue
+#create new anime queue attached to profile
 @router.post("/anime_queues", response_model=AnimeQueue)
 async def create_anime_queue(
     profile_id: str,
@@ -103,7 +102,7 @@ async def create_anime_queue(
     animequeue_request = repo.create_queue(animequeue_request)
     return animequeue_request
 
-#delete anime queue
+#delete anime queue attached to profile
 @router.delete("/anime_queues/{id}", response_model=bool)
 async def delete_user_queue(
     id: str,
