@@ -43,3 +43,13 @@ back-end finished, roles added to accounts "users", Forums/Anime attached to Pro
 
 12/02/2022
 Watched the webhooks videos on Learn in preparation to write our front-end using webhooks and redux tool-kit
+
+12/05/2022
+Started making the signup form for the front-end.
+
+12/06/2022
+Made signup functional, started loginform, but struggling to get it to work. Going to try
+using Redux to implement Login with mutations.
+
+12/07/2022
+Added some css and bootstrap to the project to give it some character. Trying to implement Redux into the front-end now, store is operational. Just need to create the actions and reducers for the components.

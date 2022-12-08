@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from "react";
-// import { useGetAnimeQuery } from '/app/src/store/animeApi'
+import React, { useState } from "react";
+import { useGetAnimeQuery } from '/app/src/store/animeApi'
 import Pagination from '/app/src/animeComs/paginate'
+import { Link } from "react-router-dom"
 
 const AnimeList = (item) => {
-  // const { data } = useGetAnimeQuery();
-  const [animes, setAnimes] = useState([]);
-  // const [detail, setDetail] = useState([]);
-  // const [addtoqueue, setQueue] = useState([])
-  const [currentPage, setCurrentPage] = useState();
+  const { data, isLoading } = useGetAnimeQuery();
+  // const [animes, setAnimes] = useState([]);
+  // const [profile, setProfile] = useState([]);
+  // const [queues, setQueues] = useState([]);
+  const [setCurrentPage] = useState();
   const [animePerPage] = useState(20);
 
-  const fetchAnimes = async () => {
-    const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
-    const result = await fetch(url);
-    const data = await result.json();
-    console.log(data);
-    setAnimes(data.data);
-  };
+  if (isLoading) {
+    return null;
+  }
 
-  const fetchAnimeDetail = async (id) => {
-    const url = `http://localhost:8000/anime_detail/${id}`;
-    const result = await fetch(url);
-    const data = await result.json();
-    setAnimes(data.data);
-  };
+  // const fetchAnimes = async () => {
+  //   const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
+  //   const result = await fetch(url);
+  //   const data = await result.json();
+  //   console.log(data);
+  //   setAnimes(data.data);
+  // };
 
-  // const addToQueue = async (queue_id) => {
+  // const fetchProfile = async (profile_id) => {
+  //   const url = `http://localhost:8000/profiles/${profile_id}`;
+  //   const result = await fetch(url);
+  //   const data = await result.json();
+  //   console.log(data);
+  //   setProfile(data);
+  // };
+
+  // const addToQueue = async (queue_id, id) => {
   //   const url = `http://localhost:8000/add_anime_to_queue/${queue_id}`;
   //   const result = await fetch(url, {
   //     method: "PUT",
@@ -36,17 +42,17 @@ const AnimeList = (item) => {
   // };
 
 
-  useEffect(() => {
-    fetchAnimes();
-  }, []); // componentDidMount
+  // useEffect(() => {
+  //   fetchAnimes();
+  // }, []); // componentDidMount
 
   function Card(props){
     return(
       <div className="card">
         <div className="card_body">
-          <a href="http://localhost:3000/detail/{id}" role="button">
+          <Link to={`/animedetail/${props.id}`}>
             <img src={props.img} alt=""/>
-          </a>
+          </Link>
           <h2 className="card_title">{props.title}</h2>
           <p className="card_description">{props.description}</p>
         </div>
@@ -69,11 +75,12 @@ const AnimeList = (item) => {
           </tr>
         </thead>
         <tbody>
-          {animes?.map((anime) => {
+          {data.data.map((anime) => {
             return (
               <tr key={anime.id}>
                 <td className="model-text">
                   <Card
+                  id ={anime.id}
                   img={anime.attributes.posterImage.tiny}
                   title={anime.attributes.canonicalTitle}
                   description={anime.attributes.description}

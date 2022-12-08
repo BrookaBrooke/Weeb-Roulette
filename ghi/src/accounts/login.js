@@ -20,10 +20,7 @@ class LoginForm extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        const data = {
-                email: this.state.email,
-                password: this.state.password,
-            }
+        const data = {...this.state}
 
         const url = "http://localhost:8000/token/"
         const fetchConfig = {
@@ -46,20 +43,20 @@ class LoginForm extends React.Component {
     render() {
 
         return (
-            <div>
-                <div>
-                    <div>
-                        <h1>Login</h1>
+            <div className="row">
+                <div className="offset-3 col-6">
+                    <div className="p-4 mt-4">
+                        <h1 className="header-title">Login</h1>
                         <form onSubmit={this.handleSubmit} id="login-form">
-                            <div>
-                                <input onChange={this.handleChange} value={this.state.email} placeholder="Email" required type="text" name="email"/>
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handleChange} value={this.state.email} placeholder="Email" required type="text" name="email" className="form-control"/>
                                 <label htmlFor="Email">Email</label>
                             </div>
-                            <div>
-                                <input onChange={this.handleChange} value={this.state.password} placeholder="Password" required type="text" name="password"/>
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handleChange} value={this.state.password} placeholder="Password" required type="text" name="password" className="form-control"/>
                                 <label htmlFor="Password">Password</label>
                             </div>
-                            <button>Add</button>
+                            <button className="btn btn-secondary">Login</button>
                         </form>
                     </div>
                 </div>
