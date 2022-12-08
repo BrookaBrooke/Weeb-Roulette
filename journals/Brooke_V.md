@@ -7,3 +7,7 @@ I used, so tonight I plan on doing further research to find a better template.
 # Nov 22
 
 Today I further researched how to connect react with bootstrap. I plan do do more work tonight and try to get the sidebar working by EOD tomorrow.
+
+# Dec 7
+
+Got the anime detail page to show up, now I am just trying to get the page to show info from the api.

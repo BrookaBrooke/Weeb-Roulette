@@ -7,6 +7,7 @@ const AnimeDetail = (item) => {
   // const [detail, setDetail] = useState([]);
   // const [addtoqueue, setQueue] = useState([])
   const [currentPage, setCurrentPage] = useState();
+
   const fetchAnimeDetail = async (id) => {
     const url = `http://localhost:8000/anime_detail/${id}`;
     const result = await fetch(url);
@@ -14,16 +15,8 @@ const AnimeDetail = (item) => {
     setAnimes(data.data);
   };
 
-  const fetchAnimes = async () => {
-    const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
-    const result = await fetch(url);
-    const data = await result.json();
-    console.log(data);
-    setAnimes(data.data);
-  };
-
   useEffect(() => {
-    fetchAnimes();
+    fetchAnimeDetail();
   }, []); // componentDidMount
 
   function Card(props) {
@@ -58,7 +51,8 @@ const AnimeDetail = (item) => {
                     <Card
                       img={anime.attributes.posterImage.tiny}
                       title={anime.attributes.canonicalTitle}
-                      description={anime.attributes.description}
+                      synopsis={anime.attributes.synopsis}
+                      episodecount={anime.attributes.episodeCount}
                     />
                   </td>
                   {/* Figure out on click redirect to detail page */}
