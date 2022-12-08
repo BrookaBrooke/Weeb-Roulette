@@ -15,7 +15,7 @@ from accounts.models import (
     AccountIn,
     AccountOut,
 )
-from models.profiles import Profile
+from models.profiles import ProfileIn
 from queries.profiles import ProfileQueries
 from accounts.queries import (
     AccountQueries,
@@ -53,10 +53,10 @@ async def get_token(
             "account": account,
         }
 
-@router.post("/api/accounts", response_model=AccountToken | HttpError)
+@router.post("/api/accounts/", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
-    profile: Profile,
+    profile: ProfileIn,
     request: Request,
     response: Response,
     repo: AccountQueries = Depends(),
@@ -91,7 +91,8 @@ def account_update(
     id: str,
     account: AccountIn,
     repo: AccountQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data)):
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise not_authorized

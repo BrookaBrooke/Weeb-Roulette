@@ -1,23 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import mainPage from "./animeComs/mainPage";
-// import AnimeList from "./animeComs/animelistPage";
-// import AnimeDetail from "./animeComs/animeDetail";
-// import AnimeDetail from "./animeComs/animeDetail";
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-// import ListPage from "./animeComs/mylistPage";
+import AnimeList from "./AnimeComs/animelistPage";
+import MainPage from "./MainPage";
+import SignupForm from "./accounts/signup";
+import LoginForm from "./accounts/login";
 import FrontPage from "./AnimeComs/FrontPage";
+
+import Nav from "./Nav";
+
 function App() {
   return (
     <BrowserRouter>
+      <Nav />
       <div>
         <Routes>
-          {/* <Route path="/home" index element={<MainPage />} /> */}
-          {/* <Route path="/detail" index element={<AnimeDetail />} /> */}
-          {/* <Route path="/animelist" element={<AnimeList />} /> */}
-          <Route path="/SignIn" element={<SignIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          {/* <Route path="/ListPage" element={<ListPage />} /> */}
+          <Route path="/" element={<MainPage />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/animelist" element={<AnimeList />} />
           <Route path="/FrontPage" element={<FrontPage />} />
         </Routes>
       </div>
