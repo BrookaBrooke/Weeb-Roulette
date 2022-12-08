@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 
 const FrontPage = () => {
-  const [animes, setAnimes] = useState([]);
+  const [animes, setHomepageCards] = useState([]);
   // const [homepageCards, setHomepageCards] = useState([]);
 
   const fetchAnimes = async () => {
@@ -12,8 +12,23 @@ const FrontPage = () => {
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
-    setAnimes(data.data);
+    setHomepageCards(data.data);
+    const array = [];
+    let slideObject = {};
+    let index = 0;
+    animes.cards.forEach((animes, i) => {
+      slideObject[index] = animes;
+      if (i % 4 === 0) {
+        array.push(slideObject);
+        slideObject = {};
+        index = 0;
+      }
+      index++;
+    });
+    array.shift();
+    setHomepageCards(array);
   };
+
   useEffect(() => {
     fetchAnimes();
   }, []);
@@ -23,12 +38,40 @@ const FrontPage = () => {
       <Carousel style={{ width: "290px" }}>
         {animes.map((i) => {
           return (
-            <Carousel.Item key={i.id}>
-              <div>
-                <AnimeCard
-                  title={i.attributes.canonicalTitle}
-                  images={i.attributes.posterImages?.tiny}
-                />
+            <Carousel.Item key={i.id["1"]}>
+              <div style={{ display: "flex" }}>
+                <span className="m-2" style={{ width: "100%" }}>
+                  <Link to={`/card/${cardObject["1"].multiverse_id}`}>
+                    <AnimeCard
+                      title={i.attributes.canonicalTitle}
+                      images={i.attributes.posterImages?.tiny}
+                    />
+                  </Link>
+                </span>
+                <span className="m-2" style={{ width: "100%" }}>
+                  <Link to={`/card/${cardObject["2"].multiverse_id}`}>
+                    <AnimeCard
+                      title={i.attributes.canonicalTitle}
+                      images={i.attributes.posterImage?.tiny}
+                    />
+                  </Link>
+                </span>
+                <span className="m-2" style={{ width: "100%" }}>
+                  <Link to={`/card/${cardObject["3"].multiverse_id}`}>
+                    <AnimeCard
+                      title={i.attributes.canonicalTitle}
+                      images={i.attributes.posterImage?.tiny}
+                    />
+                  </Link>
+                </span>
+                <span className="m-2" style={{ width: "100%" }}>
+                  <Link to={`/card/${cardObject["4"].multiverse_id}`}>
+                    <AnimeCard
+                      title={i.attributes.canonicalTitle}
+                      images={i.attributes.posterImage?.tiny}
+                    />
+                  </Link>
+                </span>
               </div>
             </Carousel.Item>
           );
