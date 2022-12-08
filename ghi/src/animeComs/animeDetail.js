@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 
 function AnimeDetail() {
@@ -38,7 +38,7 @@ function AnimeDetail() {
               <span className="m-2" style={{ width: "100%" }}>
                 <Card
                   title={i.attributes.canonicalTitle}
-                  image={i.attributes.posterimage?.tiny}
+                  image={i.attributes.posterimage.large}
                 />
               </span>
             </div>
