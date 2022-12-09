@@ -34,7 +34,6 @@ class SignupForm extends React.Component {
                 state: "",
                 },
             }
-
         const url = "http://localhost:8000/api/accounts/"
         const fetchConfig = {
             method: "POST",
@@ -66,11 +65,11 @@ class SignupForm extends React.Component {
                                 <label htmlFor="Username">Username</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input onChange={this.handleChange} value={this.state.email} placeholder="Email" required type="text" name="email" className="form-control"/>
+                                <input onChange={this.handleChange} value={this.state.email} placeholder="Email" required type="email" name="email" className="form-control"/>
                                 <label htmlFor="Email">Email</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input onChange={this.handleChange} value={this.state.password} placeholder="Password" required type="text" name="password" className="form-control"/>
+                                <input onChange={this.handleChange} value={this.state.password} placeholder="Password" required type="password" name="password" className="form-control"/>
                                 <label htmlFor="Password">Password</label>
                             </div>
                             <button className="btn btn-secondary">Submit</button>

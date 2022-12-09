@@ -41,7 +41,7 @@ not_authorized = HTTPException(
     headers={"WWW-Authenticate": "Bearer"},
 )
 
-@router.get("/token", response_model=AccountToken | None)
+@router.get("/token", tags='Account', response_model=AccountToken | None)
 async def get_token(
     request: Request,
     account: dict = Depends(authenticator.try_get_current_account_data)
@@ -53,7 +53,7 @@ async def get_token(
             "account": account,
         }
 
-@router.post("/api/accounts/", response_model=AccountToken | HttpError)
+@router.post("/api/accounts/", tags="Account", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
     profile: ProfileIn,
@@ -71,7 +71,7 @@ async def create_account(
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Account with that Username or Password already exists.",
+            detail="Account with that Email already exists.",
         )
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
@@ -81,12 +81,12 @@ async def create_account(
 def get_accounts(repo: AccountQueries = Depends()):
     return repo.all()
 
-@router.get("/api/accounts/{username}", response_model=AccountOut)
+@router.get("/api/accounts/{username}", tags="Account", response_model=AccountOut)
 def account_details(email: str, repo: AccountQueries = Depends()):
     account = repo.get(email)
     return account
 
-@router.put("/api/accounts/{username}", response_model=AccountOut)
+@router.put("/api/accounts/{username}", tags="Account", response_model=AccountOut)
 def account_update(
     id: str,
     account: AccountIn,
@@ -96,12 +96,23 @@ def account_update(
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise not_authorized
-    account_out = repo.update(id, account.username, account.email, account.password)
-    if account_out is None:
-        return {"message": "Nothing was changed"}
-    return account_out
+    if id not in repo:
+        return {"Error": "Account does not exist."}
+
+    if account.username != None:
+        repo[id].username = account.username
+
+    if account.email != None and account.email not in repo:
+        repo[id].email = account.email
+
+    if account.password != None:
+        repo[id].password = account.password
+
+    return repo[id]
 
 @router.delete("/api/accounts/{username}")
 def account_delete(id: str, repo: AccountQueries = Depends()):
+    if id not in repo:
+        return {"Error": "Account does not exist."}
     repo.delete(id=id)
-    return True
+    return {"Message": "Account successfully deleted."}
