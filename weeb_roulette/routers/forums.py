@@ -38,11 +38,7 @@ def get_threads(repo: ThreadQueries = Depends()):
 
 @router.get("/thread/{id}", response_model=ThreadOut)
 def get_thread(
-<<<<<<< HEAD
     thread_id : str,
-=======
-    thread_id: str,
->>>>>>> 89109b96fa6af89b4f65dc36f8efac0ed49aa1f2
     repo: ThreadQueries = Depends(),
     post_repo: PostQueries = Depends(),
 ):
