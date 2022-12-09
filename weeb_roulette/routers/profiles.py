@@ -43,7 +43,7 @@ def get_profile(
 def get_profiles(repo: ProfileQueries = Depends()):
     return ProfileList(profiles = repo.all())
 
-@router.put("/profiles/{profile_id}", response_model= Profile)
+@router.put("/pofiles/{profile_id}", response_model= Profile)
 def update_profile(
     profile_id: str,
     profile: ProfileIn,
@@ -53,6 +53,8 @@ def update_profile(
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise not_authorized
+    if profile_id not in repo:
+        return {"Error": "Profile does not exist."}
 
     if profile.bio != None:
         repo[profile_id].bio = profile.bio

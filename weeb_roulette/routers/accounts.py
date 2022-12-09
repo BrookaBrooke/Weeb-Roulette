@@ -41,7 +41,7 @@ not_authorized = HTTPException(
     headers={"WWW-Authenticate": "Bearer"},
 )
 
-@router.get("/token", tags='Account', response_model=AccountToken | None)
+@router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
     account: dict = Depends(authenticator.try_get_current_account_data)
@@ -53,7 +53,7 @@ async def get_token(
             "account": account,
         }
 
-@router.post("/api/accounts/", tags="Account", response_model=AccountToken | HttpError)
+@router.post("/api/accounts/", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
     profile: ProfileIn,
@@ -71,7 +71,7 @@ async def create_account(
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Account with that Email already exists.",
+            detail="Account with that Email or Username already exists.",
         )
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
@@ -81,12 +81,12 @@ async def create_account(
 def get_accounts(repo: AccountQueries = Depends()):
     return repo.all()
 
-@router.get("/api/accounts/{username}", tags="Account", response_model=AccountOut)
+@router.get("/api/accounts/{username}", response_model=AccountOut)
 def account_details(email: str, repo: AccountQueries = Depends()):
     account = repo.get(email)
     return account
 
-@router.put("/api/accounts/{username}", tags="Account", response_model=AccountOut)
+@router.put("/api/accounts/{username}", response_model=AccountOut)
 def account_update(
     id: str,
     account: AccountIn,

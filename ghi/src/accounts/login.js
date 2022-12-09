@@ -9,7 +9,7 @@ import { Alert } from 'react-bootstrap';
 
 function Login() {
   const dispatch = useDispatch();
-  const { email, password } = useSelector((state) => state.account);
+  const { username, password } = useSelector((state) => state.account);
   const [logIn, { error, isLoading: logInLoading, isSuccess: loginSuccessful }] = useLogInMutation();
   const field = useCallback(
     e => dispatch(updateField({field: e.target.name, value: e.target.value})),
@@ -37,11 +37,11 @@ useEffect(() => {
                     <form method="POST" onSubmit={ async (e) => {
                     e.preventDefault(); await logIn(e.target); handleLogin();}}>
                     <div className="form-floating mb-3">
-                        <input required onChange={field} value={email} name="email" className="form-control" type="email" placeholder="example@example.com" />
+                        <input required onChange={field} value={username} name="username" className="form-control" type="email" placeholder="email" />
                         <label htmlFor="email">Email</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input required onChange={field} value={password} name="password" className="form-control" type="text" placeholder="password" />
+                        <input required onChange={field} value={password} name="password" className="form-control" type="password" placeholder="password" />
                         <label className="label">Password</label>
                     </div>
                     <button disabled={logInLoading} className="btn btn-primary">Submit</button>
