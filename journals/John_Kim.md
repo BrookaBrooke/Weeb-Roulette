@@ -98,29 +98,42 @@ Today, I worked on:
 
 Today, I worked on:
 
+
 ## Dec 03
 
 Today, I worked on:
+
+1. Started working on flushing out the animeList Page and started working on the card component to display each anime with the correct information.
 
 ## Dec 04
 
 Today, I worked on:
 
+1. Finished the card component and started working on how to redirect the user to the specific anime detail pages. 
+
 ## Dec 05
 
 Today, I worked on:
+
+1. Implemented a dynamic click on image where it would lead the user to the specific detail pages of the animes on the anime list.
 
 ## Dec 06
 
 Today, I worked on:
 
+1. Watched redux videos again to see if we could implement stores in our project.
+
 ## Dec 07
 
 Today, I worked on:
 
+1. Got redux working in our project. Made a store and and an animeApi for the animeList Page.
+
 ## Dec 08
 
 Today, I worked on:
+
+1. Tried to figure out and conceptualize how to call each user's profile and add animes to their queues. Got a drop down template implemented however, still having trouble how to implement calling on the user's queues.
 
 ## Dec 09
 
