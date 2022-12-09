@@ -31,6 +31,7 @@ class AccountQueries(Queries):
 
     def create(self, info: AccountIn, hashed_password: str, roles=["user"]) -> Account:
         self.collection.create_index("email", unique=True)
+        self.collection.create_index("username", unique=True)
         props = info.dict()
         props["password"] = hashed_password
         props["roles"] = roles

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AnimeCard from "../components/AnimeCard";
 import { Container, Carousel, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const FrontPage = () => {
   const [animes, setAnimes] = useState([]);
@@ -47,35 +48,43 @@ const FrontPage = () => {
             <Carousel.Item key={i[1].id}>
               <div style={{ display: "flex" }}>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <AnimeCard
-                    title={i[1].attributes.canonicalTitle}
-                    image={i[1].attributes.posterImage?.tiny}
-                  />
+                  <Link to={`/detail/`}>
+                    <AnimeCard
+                      title={i[1].attributes.canonicalTitle}
+                      image={i[1].attributes.posterImage?.tiny}
+                    />
+                  </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <AnimeCard
-                    title={i[2].attributes.canonicalTitle}
-                    image={i[2].attributes.posterImage?.tiny}
-                  />
+                  <Link to={`/detail/`}>
+                    <AnimeCard
+                      title={i[2].attributes.canonicalTitle}
+                      image={i[2].attributes.posterImage?.tiny}
+                    />
+                  </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <AnimeCard
-                    title={i[3].attributes.canonicalTitle}
-                    image={i[3].attributes.posterImage?.tiny}
-                  />
+                  <Link to={`/detail/`}>
+                    <AnimeCard
+                      title={i[3].attributes.canonicalTitle}
+                      image={i[3].attributes.posterImage?.tiny}
+                    />
+                  </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <AnimeCard
-                    title={i[4].attributes.canonicalTitle}
-                    image={i[4].attributes.posterImage?.tiny}
-                  />
+                  <Link to={`/detail/`}>
+                    <AnimeCard
+                      title={i[4].attributes.canonicalTitle}
+                      image={i[4].attributes.posterImage?.tiny}
+                    />
+                  </Link>
                 </span>
               </div>
             </Carousel.Item>
           );
         })}
       </Carousel>
-      <div style={{ display: "flex", justifyContent: "right" }}>
+      <div style={{ display: "flex", justifyContent: "left" }}>
         <Container>
           <Card style={{ width: "30rem" }}>
             <Carousel>
@@ -94,6 +103,17 @@ const FrontPage = () => {
             </Carousel>
           </Card>
         </Container>
+      </div>
+      <div>
+        {/* <Container>
+          <div style={{ display: "flex", justifyContent: "right" }}>
+          <img 
+            src="https://images.pexels.com/photos/211122/pexels-photo-211122.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="'
+            style={{ width: "30rem", height: "25rem" }}
+            />
+          </div>
+        </Container> */}
       </div>
     </Container>
   );

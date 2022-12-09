@@ -1,11 +1,9 @@
 from fastapi import APIRouter, Depends, Response, HTTPException, status
 from queries.api_call import get_anime, get_anime_list
 from accounts.authenticator import authenticator
-from models.profiles import Profile
 from accounts.models import AccountOut
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueList, AnimeIdRequest
 from queries.anime import AnimeQueueQueries
-import db
 
 
 router = APIRouter()
@@ -51,11 +49,12 @@ def get_anime_queue_for_profile(
 
 #add an anime to user's queue
 @router.put("/add_anime_to_queue/{id}", response_model = AnimeQueue)
-def add_anime_to_queue(
+async def add_anime_to_queue(
     id: str,
     anime_id_request: AnimeIdRequest,
     response: Response,
     repo: AnimeQueueQueries = Depends(),
+    # account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     record = repo.add_queue_item(id, anime_id_request.anime_id)
     if record is None:
@@ -69,6 +68,7 @@ def remove_anime_from_queue(
     anime_id_request: AnimeIdRequest,
     response: Response,
     repo: AnimeQueueQueries = Depends(),
+    # account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     record = repo.delete_queue_item(id, anime_id_request.anime_id)
     if record is None:
@@ -82,6 +82,7 @@ def update_queue_name(
     anime_queue: AnimeQueueIn,
     response: Response,
     repo: AnimeQueueQueries = Depends(),
+    # account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     record = repo.update_queue(id, anime_queue.name)
     if record is None:
