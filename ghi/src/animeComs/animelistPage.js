@@ -3,7 +3,7 @@ import { useGetAnimeQuery } from '/app/src/store/animeApi'
 import Pagination from '/app/src/animeComs/paginate'
 import { Link } from "react-router-dom"
 
-const AnimeList = (item) => {
+const AnimeList = () => {
   const { data, error, isLoading } = useGetAnimeQuery();
   // const [animes, setAnimes] = useState([]);
   const [profile, setProfile] = useState([]);
