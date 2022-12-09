@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useGetAnimeQuery } from '/app/src/store/animeApi'
-import Pagination from '/app/src/animeComs/paginate'
-import { Link } from "react-router-dom"
+import { useGetAnimeQuery } from "/app/src/store/animeApi";
+import Pagination from "/app/src/animeComs/paginate";
+import { Link } from "react-router-dom";
 
 const AnimeList = (item) => {
   const { data, isLoading } = useGetAnimeQuery();
@@ -41,60 +41,63 @@ const AnimeList = (item) => {
 
   // };
 
-
   // useEffect(() => {
   //   fetchAnimes();
   // }, []); // componentDidMount
 
-  function Card(props){
-    return(
+  function Card(props) {
+    return (
       <div className="card">
         <div className="card_body">
           <Link to={`/animedetail/${props.id}`}>
-            <img src={props.img} alt=""/>
+            <img src={props.img} alt="" />
           </Link>
           <h2 className="card_title">{props.title}</h2>
           <p className="card_description">{props.description}</p>
         </div>
         <button className="card_button">Add to List</button>
       </div>
-    )
+    );
   }
 
   //Change Page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="container">
       <h1 className="header-title">List of Animes</h1>
       <div className="extra container">
-      <table className="table">
-        <thead>
-          <tr>
-            <th className="table-head"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.data.map((anime) => {
-            return (
-              <tr key={anime.id}>
-                <td className="model-text">
-                  <Card
-                  id ={anime.id}
-                  img={anime.attributes.posterImage.tiny}
-                  title={anime.attributes.canonicalTitle}
-                  description={anime.attributes.description}
-                  />
-                </td>
-                {/* Figure out on click redirect to detail page */}
-                {/* assign id value to onclick function */}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="table-head"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((anime) => {
+              return (
+                <tr key={anime.id}>
+                  <td className="model-text">
+                    <Card
+                      id={anime.id}
+                      img={anime.attributes.posterImage.tiny}
+                      title={anime.attributes.canonicalTitle}
+                      description={anime.attributes.description}
+                    />
+                  </td>
+                  {/* Figure out on click redirect to detail page */}
+                  {/* assign id value to onclick function */}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
-      <Pagination animePerPage={animePerPage} totalAnimes={200} paginate={paginate}/>
+      <Pagination
+        animePerPage={animePerPage}
+        totalAnimes={200}
+        paginate={paginate}
+      />
     </div>
   );
 };

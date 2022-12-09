@@ -11,3 +11,9 @@ Today I further researched how to connect react with bootstrap. I plan do do mor
 # Dec 7
 
 Got the anime detail page to show up, now I am just trying to get the page to show info from the api.
+
+# Dec 8
+
+Worked on the anime detail page more, finally fixed the API fetch. For some reason I'm having an issue with the map function.
+
+# Dec 9
