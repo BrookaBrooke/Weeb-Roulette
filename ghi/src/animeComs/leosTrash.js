@@ -6,8 +6,8 @@ export const LeosTrash = () => {
     <Container className="card-carousel">
       <Carousel>
         <Carousel.Item>
-          <div style={{ display: "flex" }}>
-            <span className="m-2" style={{ width: "100%" }}>
+          <div style={{ display: "flex", justifyContent: "right" }}>
+            <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
@@ -28,8 +28,8 @@ export const LeosTrash = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div style={{ display: "flex" }}>
-            <span className="m-2" style={{ width: "100%" }}>
+          <div style={{ display: "flex", justifyContent: "right" }}>
+            <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
@@ -50,8 +50,8 @@ export const LeosTrash = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div style={{ display: "flex" }}>
-            <span className="m-2" style={{ width: "100%" }}>
+          <div style={{ display: "flex", justifyContent: "right" }}>
+            <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
