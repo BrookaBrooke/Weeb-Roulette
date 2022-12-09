@@ -17,3 +17,5 @@ Got the anime detail page to show up, now I am just trying to get the page to sh
 Worked on the anime detail page more, finally fixed the API fetch. For some reason I'm having an issue with the map function.
 
 # Dec 9
+
+Finally got the page to show data from the API!
