@@ -48,7 +48,7 @@ const FrontPage = () => {
             <Carousel.Item key={i[1].id}>
               <div style={{ display: "flex" }}>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <Link to={`/detail/`}>
+                  <Link to={`/detail/${i[1].id}`}>
                     <AnimeCard
                       title={i[1].attributes.canonicalTitle}
                       image={i[1].attributes.posterImage?.tiny}
@@ -56,7 +56,7 @@ const FrontPage = () => {
                   </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <Link to={`/detail/`}>
+                  <Link to={`/detail/${i[2].id}`}>
                     <AnimeCard
                       title={i[2].attributes.canonicalTitle}
                       image={i[2].attributes.posterImage?.tiny}
@@ -64,7 +64,7 @@ const FrontPage = () => {
                   </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <Link to={`/detail/`}>
+                  <Link to={`/detail/${i[3].id}`}>
                     <AnimeCard
                       title={i[3].attributes.canonicalTitle}
                       image={i[3].attributes.posterImage?.tiny}
@@ -72,7 +72,7 @@ const FrontPage = () => {
                   </Link>
                 </span>
                 <span className="m-2" style={{ width: "100%" }}>
-                  <Link to={`/detail/`}>
+                  <Link to={`/detail/${i[4].id}`}>
                     <AnimeCard
                       title={i[4].attributes.canonicalTitle}
                       image={i[4].attributes.posterImage?.tiny}
