@@ -10,7 +10,7 @@ export const LeosTrash = () => {
             <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
+                  <Card.Title>Test 1</Card.Title>
                   <img
                     className="d-block w-100"
                     src="https://images.pexels.com/photos/1654748/pexels-photo-1654748.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -32,7 +32,7 @@ export const LeosTrash = () => {
             <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
+                  <Card.Title>Test 2</Card.Title>
                   <img
                     className="d-block w-100"
                     src="https://images.pexels.com/photos/932261/pexels-photo-932261.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -54,7 +54,7 @@ export const LeosTrash = () => {
             <span className="m-2" style={{ width: "25%" }}>
               <Card style={{ width: "18rem" }}>
                 <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
+                  <Card.Title>Test 3</Card.Title>
                   <img
                     className="d-block w-100"
                     src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800"

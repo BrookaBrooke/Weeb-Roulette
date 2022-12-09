@@ -31,6 +31,14 @@ const FrontPage = () => {
     fetchAnimes();
   }, []);
 
+  const pillows = [
+    "https://images.pexels.com/photos/1248583/pexels-photo-1248583.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/788587/pexels-photo-788587.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/1524232/pexels-photo-1524232.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/776120/pexels-photo-776120.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/994172/pexels-photo-994172.jpeg?auto=compress&cs=tinysrgb&w=800",
+  ];
+
   return (
     <Container className="card-carousel">
       <Carousel style={{ width: "100%" }}>
@@ -67,6 +75,26 @@ const FrontPage = () => {
           );
         })}
       </Carousel>
+      <div style={{ display: "flex", justifyContent: "right" }}>
+        <Container>
+          <Card style={{ width: "30rem" }}>
+            <Carousel>
+              {pillows.map((pillow) => {
+                console.log(pillow);
+                return (
+                  <Carousel.Item>
+                    <img
+                      src={pillow}
+                      alt=""
+                      style={{ width: "30rem", height: "25rem" }}
+                    />
+                  </Carousel.Item>
+                );
+              })}
+            </Carousel>
+          </Card>
+        </Container>
+      </div>
     </Container>
   );
 };
