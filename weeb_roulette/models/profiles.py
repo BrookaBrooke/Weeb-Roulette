@@ -4,10 +4,10 @@ from models.forums import ThreadOut
 from typing import Optional
 
 class ProfileIn(BaseModel):
-    bio: Optional[str]
-    signature: Optional[str]
-    city: Optional[str]
-    state: Optional[str]
+    bio: Optional[str] | None
+    signature: Optional[str] | None
+    city: Optional[str] | None
+    state: Optional[str] | None
 
 class Profile(ProfileIn):
     id: str
