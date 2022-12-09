@@ -1,11 +1,9 @@
 from fastapi import APIRouter, Depends, Response, HTTPException, status
 from queries.api_call import get_anime, get_anime_list
 from accounts.authenticator import authenticator
-from models.profiles import Profile
 from accounts.models import AccountOut
 from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueList, AnimeIdRequest
 from queries.anime import AnimeQueueQueries
-import db
 
 
 router = APIRouter()
