@@ -4,7 +4,6 @@ import MainPage from "./MainPage";
 import SignupForm from "./accounts/signup";
 import LoginForm from "./accounts/login";
 import FrontPage from "./AnimeComs/FrontPage";
-// import LeosTrash from "./AnimeComs/LeosTrash";
 
 import Nav from "./Nav";
 
@@ -19,7 +18,6 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           {/* <Route path="/animelist" element={<AnimeList />} /> */}
           <Route path="/FrontPage" element={<FrontPage />} />
-          {/* <Route path="/leosTrash" element={<LeosTrash />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
