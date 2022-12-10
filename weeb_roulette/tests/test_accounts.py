@@ -1,26 +1,26 @@
-from fastapi.testclient import TestClient
-from main import app
-from accounts.queries import AccountQueries
+# from fastapi.testclient import TestClient
+# from main import app
+# from accounts.queries import AccountQueries
 
-client = TestClient(app)
-
-
-class MockAccountRepository:
-    def get_all(self):
-        return []
+# client = TestClient(app)
 
 
-def test_get_all_accounts():
+# class MockAccountRepository:
+#     def get_all(self):
+#         return []
 
-    # Arrange
-    app.dependency_overrides[AccountQueries] = MockAccountRepository
 
-    # Act
-    response = client.get("/accounts")
+# def test_get_all_accounts():
 
-    # Assert
-    assert response.status_code == 200
-    assert response.json() == []
+#     # Arrange
+#     app.dependency_overrides[AccountQueries] = MockAccountRepository
 
-    # Clean up
-    app.dependency_overrides = {}
+#     # Act
+#     response = client.get("/accounts")
+
+#     # Assert
+#     assert response.status_code == 200
+#     assert response.json() == []
+
+#     # Clean up
+#     app.dependency_overrides = {}
