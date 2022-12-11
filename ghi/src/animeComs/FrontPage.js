@@ -112,19 +112,14 @@ const FrontPage = () => {
         <Container>
           <div style={{ display: "flex", justifyContent: "right" }}>
             <div className="card" style={{ width: "18rem" }}>
+              <img
+                className="card-img-top"
+                src="https://thumbs.dreamstime.com/b/website-under-construction-27041099.jpg"
+                alt="Card image cap"
+                style={{ width: "30rem", height: "25rem" }}
+              />
               <div className="card-body">
-                <h5 className="Under construction">Card title</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p className="card-text">Coming soon, forum page.</p>
-                <a
-                  href="https://images.pexels.com/photos/211122/pexels-photo-211122.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  className="card-link"
-                >
-                  Card link
-                </a>
-                <a href="#" className="card-link">
-                  Another link
-                </a>
+                <h2 className="card-text">Coming soon, forum section.</h2>
               </div>
             </div>
           </div>
