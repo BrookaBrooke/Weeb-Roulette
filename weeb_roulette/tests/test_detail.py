@@ -1,27 +1,50 @@
+# from fastapi.testclient import TestClient
+# from main import app
+# # # from queries.anime import AnimeQueueQueries
+
+# client = TestClient(app)
+
+# class AnimeDetailInfo:
+#     def get_anime_detail(self):
+#         return [] or {}
+#         #not sure if it is an object or array yet 
+
+# def test_anime_detail():
+# #     #Arrange
+#     app.dependency_overrides[AnimeQueueQueries] = AnimeDetailInfo
+
+# #     #Act
+# #     # response = client.get("/anime_detail/{id}")
+#     response = client.get("/anime_detail/")
+
+# #     #Clean Up
+#     app.dependency_overrides = {}
+
+#     assert response.status_code == 200
+#     assert response.json() == {"data": {}}
+
+
 from fastapi.testclient import TestClient
-from main import app
 from queries.anime import AnimeQueueQueries
+
+from main import app
 
 client = TestClient(app)
 
-class AnimeDetailInfo:
-    def get_anime_detail(self):
+class AnimeQueuesMock():
+    def get_queues(self):
         return []
 
-def test_anime_detail():
-    #Arrange
-    app.dependency_overrides[AnimeQueueQueries] = AnimeDetailInfo
+def test_get_queues():
+    #arrange
+    app.dependency_overrides[AnimeQueueQueries] = AnimeQueuesMock
 
-    #Act
-    # response = client.get("/anime_detail/{id}")
-    response = client.get("/anime_detail/")
+    #act
+    response = client.get("/anime_queues")
 
-    #Clean Up
-    app.dependency_overrides = {}
+    #assert
 
     assert response.status_code == 200
-    assert response.json() == {"anime": []}
+    assert response.json() == {"animequeues": []}
 
-
-
-
+    app.dependency_overrides = {}
