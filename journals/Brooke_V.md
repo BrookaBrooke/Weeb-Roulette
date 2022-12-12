@@ -4,9 +4,17 @@ Today I began work on the side bar for the main page, as well as the main page i
 sidebar to get it to show on the front page. We think it's due to the obscure libraries used in the template
 I used, so tonight I plan on doing further research to find a better template.
 
-# Nov 22
+# Nov 21
 
 Today I further researched how to connect react with bootstrap. I plan do do more work tonight and try to get the sidebar working by EOD tomorrow.
+
+# Nov 23
+
+# Nov 24-27
+
+Thanksgiving break BOI
+
+# Nov 28
 
 # Dec 7
 
@@ -18,4 +26,4 @@ Worked on the anime detail page more, finally fixed the API fetch. For some reas
 
 # Dec 9
 
-Finally got the page to show data from the API!
+Finally got the page to show data from the API! Just had to lay it out and mak it look decent after that. Now I just have to make it redirect you to it from the list once clicked.
