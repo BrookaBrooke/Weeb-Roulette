@@ -6,7 +6,7 @@ from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueList, AnimeIdReques
 from queries.anime import AnimeQueueQueries
 
 
-router = APIRouter()
+router = APIRouter(tags=["animes"])
 
 not_authorized = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
