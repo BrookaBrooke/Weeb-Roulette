@@ -1,8 +1,8 @@
-from fastapi.testclient import TestClient
-from main import app
-from queries.anime import AnimeQueueQueries
+# from fastapi.testclient import TestClient
+# from main import app
+# from queries.anime import AnimeQueueQueries
 
-client = TestClient(app)
+# client = TestClient(app)
 
 
 # class MockAnimeRepository:
