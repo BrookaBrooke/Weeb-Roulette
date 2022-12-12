@@ -35,7 +35,6 @@ const MainPage = () => {
   const pillows = [
     "https://images.pexels.com/photos/1248583/pexels-photo-1248583.jpeg?auto=compress&cs=tinysrgb&w=800",
     "https://images.pexels.com/photos/788587/pexels-photo-788587.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/1524232/pexels-photo-1524232.jpeg?auto=compress&cs=tinysrgb&w=800",
     "https://images.pexels.com/photos/776120/pexels-photo-776120.jpeg?auto=compress&cs=tinysrgb&w=800",
     "https://images.pexels.com/photos/994172/pexels-photo-994172.jpeg?auto=compress&cs=tinysrgb&w=800",
   ];
@@ -88,9 +87,9 @@ const MainPage = () => {
           );
         })}
       </Carousel>
-      <div style={{ display: "flex", justifyContent: "left" }}>
+      <div style={{ display: "flex" }}>
         <Container>
-          <Card style={{ width: "30rem" }}>
+          <Card style={{ width: "100%" }}>
             <Carousel>
               {pillows.map((pillow) => {
                 console.log(pillow);
@@ -99,7 +98,10 @@ const MainPage = () => {
                     <img
                       src={pillow}
                       alt=""
-                      style={{ width: "30rem", height: "25rem" }}
+                      style={{
+                        width: "100%",
+                        height: "600px",
+                      }}
                     />
                   </Carousel.Item>
                 );
@@ -107,21 +109,6 @@ const MainPage = () => {
             </Carousel>
           </Card>
         </Container>
-      </div>
-      <div>
-        <div style={{ display: "flex", justifyContent: "right" }}>
-          <div className="card" style={{ width: "18rem" }}>
-            <img
-              className="card-img-top"
-              src="https://thumbs.dreamstime.com/b/website-under-construction-27041099.jpg"
-              alt="Card cap"
-              style={{ width: "30rem", height: "25rem" }}
-            />
-            <div className="card-body">
-              <h2 className="card-text">Coming soon, forum section.</h2>
-            </div>
-          </div>
-        </div>
       </div>
     </Container>
   );
