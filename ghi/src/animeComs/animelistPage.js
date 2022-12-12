@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useGetAnimeQuery } from "/app/src/store/animeApi";
-import Pagination from "/app/src/AnimeComs/paginate";
+import Pagination from "/app/src/animeComs/paginate";
 import { Link } from "react-router-dom";
 
 const AnimeList = () => {

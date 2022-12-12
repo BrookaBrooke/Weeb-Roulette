@@ -41,8 +41,14 @@
 
 ## Tests
 
+How to run test:
+
+1. Go to weeb-roulette container
+2. run python -m pytest
+3. Check to see if all tests are passing
+
 - [weeb_roulette/tests/test_threads] / Connor Gillespie
 - [weeb_roulette/tests/test_queues] / Leo Galvan
 - [weeb_roulette/tests/test_accounts] / Matt Sabo
 - [weeb_roulette/tests/test_profiles] / John Kim
--
+- 
