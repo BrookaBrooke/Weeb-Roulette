@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useGetAnimeQuery } from "/app/src/store/animeApi";
-import Pagination from "/app/src/animeComs/paginate";
+import Pagination from "/app/src/AnimeComs/paginate";
 import { Link } from "react-router-dom";
 
 const AnimeList = () => {
@@ -66,8 +66,6 @@ const AnimeList = () => {
                       description={anime.attributes.description}
                     />
                   </td>
-                  {/* Figure out on click redirect to detail page */}
-                  {/* assign id value to onclick function */}
                 </tr>
               );
             })}

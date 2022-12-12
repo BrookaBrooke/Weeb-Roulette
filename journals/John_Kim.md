@@ -139,6 +139,18 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. Started and finished the readme documents and started working on getting our project in working order. Merged our individual branches to main and started working out all the kinks in our features. Also started and finished writing the test for profiles.
+
 ## Dec 10
 
 Today, I worked on:
+
+## Dec 11
+
+Today, I worked on:
+
+## Dec 12
+
+Today, I worked on:
+
+1. Finished working out kinks for each person's part. Made sure all features and aspects are working as intended.
