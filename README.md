@@ -1,34 +1,34 @@
 # Weeb Roulette
 
-* Woojae Kim
-* Matt Sabo
-* Connor Gillespie
-* Leo Galvan
-* Brooke Vonderheid
+- Woojae Kim
+- Matt Sabo
+- Connor Gillespie
+- Leo Galvan
+- Brooke Vonderheid
 
 ## Design
 
-* [docs/wireframe]
-* [docs/api_design]
-* [docs/integrations]
+- [docs/wireframe]
+- [docs/api_design]
+- [docs/integrations]
 
 ## Intended Market
 
-* Our audience are anime enthusiasts who want to organize their anime viewing experience by creating queues for themselves. It also provides a place for like minded individuals to discuss all things anime via Forums.
+- Our audience are anime enthusiasts who want to organize their anime viewing experience by creating queues for themselves. It also provides a place for like minded individuals to discuss all things anime via Forums.
 
 ## Functionality
 
-* Working and robust backend
-* Signup feature
-* Login feature
-* Pull up AnimeList page via 3rd party API.
-* (fix) Pulling up Detail page for each anime upon clicking image.
+- Working and robust backend
+- Signup feature
+- Login feature
+- Pull up AnimeList page via 3rd party API.
+- (fix) Pulling up Detail page for each anime upon clicking image.
 
 # Stretch Goals
 
-* Viewing and editing profile pages.
-* Viewing and using Forums.
-* Interacting with animequeues attached to profile.
+- Viewing and editing profile pages.
+- Viewing and using Forums.
+- Interacting with animequeues attached to profile.
 
 ## Set up
 
@@ -41,8 +41,8 @@
 
 ## Tests
 
-* [test location] / [test author]
-* 
-* 
-* 
-* 
+- [test location] / [test author]
+- [weeb_roulette/tests/test_queues] / Leo
+-
+-
+-
