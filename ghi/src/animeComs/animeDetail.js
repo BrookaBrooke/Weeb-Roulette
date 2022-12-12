@@ -1,6 +1,6 @@
 import { Container, Card, Image, Col } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const AnimeDetail = () => {
   const [animes, setAnimes] = useState({});
