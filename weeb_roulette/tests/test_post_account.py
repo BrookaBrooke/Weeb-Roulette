@@ -6,29 +6,42 @@ client = TestClient(app)
 
 
 class MockAccountRepository:
-    def create_account(self, account):
+    def create_account(self, info, hashed_password):
         response = {
-            "id": 1337,
-            "owner": {
-            "id": "nerd",
-            "username": "weeb",
-            "email": "weeb@weeb.com",
-            "roles":[]}
-        }
-        response.update(1337)
-
+            "info": {
+                "username": "string",
+                "email": "string",
+                "password": "string"
+            },
+            "profile": {
+                "bio": "string",
+                "signature": "string",
+                "city": "string",
+                "state": "string"
+            }
+            }
+        return response
 def test_create_account():
 
 #Arrange
     app.dependency_overrides[AccountQueries] = MockAccountRepository
 #Act
     account = {
-    'username': 'weeb',
-    'password': 'pass',
-    }
-    response = client.post('/api/accounts/')
+            "info": {
+                "username": "ayo",
+                "email": "weeb@weeb.com",
+                "password": "6666"
+            },
+            "profile": {
+                "bio": "",
+                "signature": "",
+                "city": "",
+                "state": ""
+            }
+            }
+    response = client.post('/api/accounts')
 #Assert
     assert response.status_code == 200
-    assert response.json()['username']== 'weeb'
+    assert response.json()['info'['username']]== 'ayo'
 
 #1. you can post to an account
