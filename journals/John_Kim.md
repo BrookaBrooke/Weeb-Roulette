@@ -152,3 +152,5 @@ Today, I worked on:
 ## Dec 12
 
 Today, I worked on:
+
+1. Finished working out kinks for each person's part. Made sure all features and aspects are working as intended.

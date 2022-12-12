@@ -16,6 +16,7 @@ function Nav() {
               <a className="nav-link dropdown-toggle" href="@" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Anime</a>
               <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><NavLink className="dropdown-item bg-secondary" aria-current="page" to="/animelist">Anime List </NavLink></li>
+                <li><NavLink className="dropdown-item bg-secondary" aria-current="page" to="/mylists">My Lists </NavLink></li>
               </ul>
             </li>
             <li className="nav-item dropdown">

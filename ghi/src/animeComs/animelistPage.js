@@ -9,15 +9,15 @@ const AnimeList = () => {
   const [animePerPage] = useState(20);
   const [open, setOpen] = React.useState(false);
 
-if (isLoading) {
-  return null;
-   }
+  if (isLoading) {
+    return null;
+  }
 
- const handleOpen = () => {
-   setOpen(!open);
- };
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
- function Card(props) {
+ function Card (props) {
    return (
      <div className="card">
        <div className="card_body">
@@ -43,8 +43,8 @@ if (isLoading) {
    );
  }
 
-//Change Page
- const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  //Change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
  return (
    <div className="container">

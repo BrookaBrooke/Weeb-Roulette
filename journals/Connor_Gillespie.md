@@ -81,3 +81,39 @@ Today, I worked on:
 Today, I worked on:
 
 1. Added get by profile method for threads, merged to main, and then finished the backend for forums.
+
+## Dec 02
+
+Today, I worked on:
+
+1. Some final edits to backend and recapped with group at where we were at in the project.
+
+## Dec 05
+
+Today, I worked on:
+
+1. Started frontend work since there was no frontend finished.
+
+## Dec 06
+
+Today, I worked on:
+
+1. Started work on queues. Trying to get React frontend to work without Redux as fast as possible.
+
+## Dec 07
+
+Today, I worked on:
+
+1. Had meetings with Candice and took a much needed break at her urging. Worked more on queues now that we have switched to using Redux.
+
+## Dec 08
+
+Today, I worked on:
+
+1. Tried to get the information pulls for queues to work when pulling from profile but was having issues.
+
+## Dec 09
+
+Today, I worked on:
+
+1. Did some final work on queues and then had to create my test. I created a test to test get all_threads.

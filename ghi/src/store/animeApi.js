@@ -12,4 +12,4 @@ export const animeApi = createApi ({
     }),
 });
 
-export const { useGetAnimeQuery} = animeApi;
+export const { useGetAnimeQuery } = animeApi;
