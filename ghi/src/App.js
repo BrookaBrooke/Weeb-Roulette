@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AnimeList from "./animeComs/AnimeListPage";
+import AnimeList from "./AnimeComs/animelistPage";
 import MainPage from "./MainPage";
 import SignupForm from "./accounts/signup";
 import LoginForm from "./accounts/login";
 
 import Nav from "./Nav";
-import AnimeDetail from "./animeComs/AnimeDetail";
+import AnimeDetail from "./AnimeComs/animeDetail";
 
 function App() {
   return (
