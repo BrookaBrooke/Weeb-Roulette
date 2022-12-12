@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 class MockAccountRepository:
-    def get_all(self):
+    def all(self):
         return []
 
 
@@ -16,7 +16,7 @@ def test_get_all_accounts():
     app.dependency_overrides[AccountQueries] = MockAccountRepository
 
     # Act
-    response = client.get("/accounts")
+    response = client.get("/api/accounts")
 
     # Assert
     assert response.status_code == 200
