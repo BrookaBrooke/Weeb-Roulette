@@ -18,7 +18,7 @@ def test_get_all_threads():
 
     # Assert
     assert response.status_code == 200
-    assert response.json() == []
+    assert response.json() == { 'threads': [] }
 
     # Clean Up
     app.dependency_overrides = {}
