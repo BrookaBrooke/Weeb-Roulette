@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 class MockAccountRepository:
-    def get_all(self):
+    def all(self):
         return []
 
 

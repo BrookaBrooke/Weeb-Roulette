@@ -114,7 +114,7 @@ const MainPage = () => {
             <img
               className="card-img-top"
               src="https://thumbs.dreamstime.com/b/website-under-construction-27041099.jpg"
-              alt="Card image cap"
+              alt="Card cap"
               style={{ width: "30rem", height: "25rem" }}
             />
             <div className="card-body">

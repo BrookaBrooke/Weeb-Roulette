@@ -56,23 +56,31 @@ Thanksgiving: Today i worked on eating! Thanksgiving
 
 Today, I worked on:
 
-1.
+1.today i worked on a code a long with brooke and we try to work on the detail page.
 
 ## Nov 29
 
 Today, I worked on:
 
+1. Today i continued working on the detail page and cleaning up some of my code.
+
 ## Nov 30
 
 Today, I worked on:
+
+1. today i had the backend team talk to me about about some of the features and routes to help me understand it better. I also started to work on how to get a carousel going as per the wire frame.
 
 ## Dec 01
 
 Today, I worked on:
 
+1. today i worked on code along with brooke and we continue to work on the front pages.
+
 ## Dec 02
 
 Today, I worked on:
+
+1.  i am starting to tackle the carousel and have come up with an idea on how to tackle it.
 
 ## Dec 05
 

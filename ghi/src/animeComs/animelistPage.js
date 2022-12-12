@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useGetAnimeQuery } from "/app/src/store/animeApi";
-import Pagination from "/app/src/animeComs/paginate";
+import Pagination from "/app/src/animeComs/Paginate";
 import { Link } from "react-router-dom";
 
 const AnimeList = () => {
-  const { data, error, isLoading } = useGetAnimeQuery();
-  // const [animes, setAnimes] = useState([]);
-  const [profile, setProfile] = useState([]);
-  const [queues, setQueues] = useState([]);
-  const [currentPage, setCurrentPage] = useState();
+  const { data, isLoading } = useGetAnimeQuery();
+  const [setCurrentPage] = useState();
   const [animePerPage] = useState(20);
   const [open, setOpen] = React.useState(false);
 
@@ -16,44 +13,9 @@ const AnimeList = () => {
     return null;
   }
 
-  // const fetchAnimes = async () => {
-  //   const url = `http://localhost:8000/anime_list/${currentPage * 20}`;
-  //   const result = await fetch(url);
-  //   const data = await result.json();
-  //   console.log(data);
-  //   setAnimes(data.data);
-  // };
-
-  // const fetchProfile = async (profile_id) => {
-  //   const url = `http://localhost:8000/profiles/${profile_id}`;
-  //   const result = await fetch(url);
-  //   const data = await result.json();
-  //   console.log(data);
-  //   setProfile(data);
-  // };
-
-  const addToQueue = async (queue_id, id) => {
-    const url = `http://localhost:8000/add_anime_to_queue/${queue_id}`;
-    const result = await fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ anime_id: id }),
-    });
-  };
-
   const handleOpen = () => {
     setOpen(!open);
   };
-
-  const handleMenuOne = () => {
-    // do something
-    setOpen(false);
-  };
-
-  // useEffect(() => {
-  //   fetchAnimes();
-
-  // }, []); // componentDidMount
 
   function Card(props) {
     return (
@@ -71,9 +33,7 @@ const AnimeList = () => {
         {open ? (
           <ul className="menu">
             <li className="menu-item">
-              <button className="list_button" onClick={addToQueue}>
-                Anime Queue Title
-              </button>
+              <button className="list_button">Anime Queue Title</button>
             </li>
           </ul>
         ) : null}
