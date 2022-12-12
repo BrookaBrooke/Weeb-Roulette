@@ -96,14 +96,16 @@ Today, I worked on:
 
 ## Dec 02
 
-Today, I worked on:
+Today, I worked on: 
+
+1. Started working on flushing out the animeList Page and started working on the card component to display each anime with the correct information.
 
 
 ## Dec 03
 
-Today, I worked on:
+Today, I worked on: 
 
-1. Started working on flushing out the animeList Page and started working on the card component to display each anime with the correct information.
+1. Weekend
 
 ## Dec 04
 
@@ -143,11 +145,15 @@ Today, I worked on:
 
 ## Dec 10
 
-Today, I worked on:
+Today, I worked on: 
+
+1. Weekend
 
 ## Dec 11
 
-Today, I worked on:
+Today, I worked on: 
+
+1. Weekend
 
 ## Dec 12
 
