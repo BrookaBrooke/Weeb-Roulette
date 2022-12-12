@@ -41,8 +41,8 @@
 
 ## Tests
 
-* [test location] / [test author]
-* 
-* 
-* 
-* 
+* [weeb_roulette/tests/test_threads] / Connor Gillespie
+*
+*
+*
+*
