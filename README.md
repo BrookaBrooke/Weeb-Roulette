@@ -22,7 +22,7 @@
 * Signup feature
 * Login feature
 * Pull up AnimeList page via 3rd party API.
-* (fix) Pulling up Detail page for each anime upon clicking image.
+* Pulling up Detail page for each anime upon clicking image.
 
 # Stretch Goals
 
