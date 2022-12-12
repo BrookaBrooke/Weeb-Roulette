@@ -10,11 +10,23 @@ Today I further researched how to connect react with bootstrap. I plan do do mor
 
 # Nov 23
 
+Still working on sidebar, almost done.
+
 # Nov 24-27
 
 Thanksgiving break BOI
 
 # Nov 28
+
+Finished Sidebar in css/react
+
+# Nov 30
+
+We decided to try MUI so we started that and got a better aesthetic.
+
+# Dec 2
+
+We had a meeting with the team and had a miscommunication about the use of mui, so we are switching back to bootstrap.
 
 # Dec 7
 
@@ -27,3 +39,7 @@ Worked on the anime detail page more, finally fixed the API fetch. For some reas
 # Dec 9
 
 Finally got the page to show data from the API! Just had to lay it out and mak it look decent after that. Now I just have to make it redirect you to it from the list once clicked.
+
+# Dec 12
+
+Everything is all merged, pray for us!!!
