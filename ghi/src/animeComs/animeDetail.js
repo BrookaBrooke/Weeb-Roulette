@@ -5,7 +5,7 @@ const AnimeDetail = () => {
   const [animes, setAnimes] = useState({});
 
   const fetchAnimes = async () => {
-    const url = "http://localhost:8000/anime_detail/3";
+    const url = "http://localhost:8000/anime_detail/1";
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
