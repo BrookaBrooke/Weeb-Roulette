@@ -21,7 +21,7 @@ if (isLoading) {
    return (
      <div className="card">
        <div className="card_body">
-         <Link to={`/animedetail/${props.id}`}>
+         <Link to={`/detail`}>
            <img src={props.img} alt="" />
          </Link>
          <h2 className="card_title">{props.title}</h2>
