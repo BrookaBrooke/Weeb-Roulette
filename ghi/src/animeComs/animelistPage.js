@@ -68,13 +68,7 @@ if (isLoading) {
                      description={anime.attributes.description}
                    />
                  </td>
-{
-  /* Figure out on click redirect to detail page */
-}
-{
-  /* assign id value to onclick function */
-}
-                 </tr>
+                </tr>
                );
              })}
            </tbody>
