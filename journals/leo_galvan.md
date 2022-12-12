@@ -102,6 +102,10 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. today i completed the second carousel, this is for the body pillows section of our project. all i have to do next is the completed my test.
+
 ## Dec 12
 
 Today, I worked on:
+
+1.  i completed the test section and did walk through with the rest of the group to get their test working as well.

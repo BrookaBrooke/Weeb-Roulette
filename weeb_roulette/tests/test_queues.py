@@ -22,7 +22,7 @@
 
 #     assert response.status_code == 200
 #     assert response.json() == {"data": {}}
-
+#^ my first try for test. Failed
 
 from fastapi.testclient import TestClient
 from queries.anime import AnimeQueueQueries
