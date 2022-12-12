@@ -17,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/animelist" element={<AnimeList />} />
           <Route path="/detail" element={<AnimeDetail />} />
+          {/* <Route path="/detail/:id" element={<AnimeDetail />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
