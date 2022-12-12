@@ -71,7 +71,7 @@ async def create_account(
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Account with that Username or Password already exists.",
+            detail="Account with that Email or Username already exists.",
         )
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
@@ -96,12 +96,23 @@ def account_update(
     account = AccountOut(**account_data)
     if "user" not in account.roles:
         raise not_authorized
-    account_out = repo.update(id, account.username, account.email, account.password)
-    if account_out is None:
-        return {"message": "Nothing was changed"}
-    return account_out
+    if id not in repo:
+        return {"Error": "Account does not exist."}
+
+    if account.username != None:
+        repo[id].username = account.username
+
+    if account.email != None and account.email not in repo:
+        repo[id].email = account.email
+
+    if account.password != None:
+        repo[id].password = account.password
+
+    return repo[id]
 
 @router.delete("/api/accounts/{username}")
 def account_delete(id: str, repo: AccountQueries = Depends()):
+    if id not in repo:
+        return {"Error": "Account does not exist."}
     repo.delete(id=id)
-    return True
+    return {"Message": "Account successfully deleted."}

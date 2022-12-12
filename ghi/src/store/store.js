@@ -1,17 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { animeApi } from './animeApi';
-import { myListApi } from './myList';
+import { accountSlice } from './accountSlice';
+import { authApiSlice } from './authApi';
 
 export const store = configureStore({
   reducer: {
     [animeApi.reducerPath] : animeApi.reducer,
-    [myListApi.reducerPath] : myListApi.reducer,
+    [accountSlice.name] : accountSlice.reducer,
+    [authApiSlice.reducerPath] : authApiSlice.reducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware()
-      .concat(animeApi.middleware)
-      .concat(myListApi.middleware)
-})
+  middleware: getDefaultMiddleware => {
+    return getDefaultMiddleware()
+    .concat(animeApi.middleware)
+    .concat(authApiSlice.middleware);
+  },
+});
 
 setupListeners(store.dispatch)
