@@ -43,7 +43,7 @@ def get_profile(
 def get_profiles(repo: ProfileQueries = Depends()):
     return ProfileList(profiles = repo.all())
 
-@router.put("/pofiles/{profile_id}", response_model= Profile)
+@router.put("/profiles/{profile_id}", response_model= Profile)
 def update_profile(
     profile_id: str,
     profile: ProfileIn,

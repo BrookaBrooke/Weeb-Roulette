@@ -6,7 +6,7 @@ from queries.forums import ThreadQueries, PostQueries
 from routers.sockets import socket_manager
 from accounts.authenticator import authenticator
 
-router = APIRouter()
+router = APIRouter(tags=["forums"])
 
 not_authorized = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,

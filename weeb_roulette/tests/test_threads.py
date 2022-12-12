@@ -1,26 +1,24 @@
 from fastapi.testclient import TestClient
 from main import app
-from accounts.queries import AccountQueries
+from queries.forums import ThreadQueries
 
 client = TestClient(app)
 
-
-class MockAccountRepository:
-    def all(self):
+class MockThreadRepository:
+    def get_all(self):
         return []
 
-
-def test_get_all_accounts():
+def test_get_all_threads():
 
     # Arrange
-    app.dependency_overrides[AccountQueries] = MockAccountRepository
+    app.dependency_overrides[ThreadQueries] = MockThreadRepository
 
     # Act
-    response = client.get("/api/accounts")
+    response = client.get("/threads")
 
     # Assert
     assert response.status_code == 200
     assert response.json() == []
 
-    # Clean up
+    # Clean Up
     app.dependency_overrides = {}

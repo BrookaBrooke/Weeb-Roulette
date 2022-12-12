@@ -45,18 +45,18 @@ Today, I worked on:
 
 Today, I worked on:
 
+1. detail page has been not been my friend, but i cont to work on it.
+
 ## Nov 24
 
 Today, I worked on:
-Thanksgiving: Today i worked on eating!
-
-## Nov 25
-
-Today, I worked on:
+Thanksgiving: Today i worked on eating! Thanksgiving
 
 ## Nov 28
 
 Today, I worked on:
+
+1.
 
 ## Nov 29
 
@@ -67,5 +67,41 @@ Today, I worked on:
 Today, I worked on:
 
 ## Dec 01
+
+Today, I worked on:
+
+## Dec 02
+
+Today, I worked on:
+
+## Dec 05
+
+Today, I worked on:
+
+1. i was tasked with making a carousel. I spent most of the day looking over docs and trying to figure out how to attack it. I also asked John for some help and he provided me with the part of my State and Fetch.
+
+## Dec 06
+
+Today, I worked on:
+
+1. i cont working on the carousel. i was able to get the bare bones of it, but i am not happy with the way it turned out. i keep trying to find something i like. i did pick one by the end of the day and have started to map it. Matt was able to provide me with a template for his old carousel, but i did not like it, but referred to it when needed.
+
+## Dec 07
+
+Today, I worked on:
+
+1. i have come to realized that carousel is a big part and i might of bit off more than i can chew. I hate it but have asked a SEIR for help and i guess they misunderstood what i was trying to do and made it worse. i did get something to show up and see part of a carousel on my screen. just does not look good and very tiny.
+
+## Dec 08
+
+Today, I worked on:
+
+1. today i wanted to pull my hair and kick down a door. carousel is very hard to do cause i have been naming my info wrong. i had Candice look over my issue after lunch and she helped provide a new tool called a debugger. that help me show what i needed and has cleared a huge path. I finally was able to get it working. it was a real headache and i was loosing a lot of sleep over it. i am glad i finally got it working.
+
+## Dec 09
+
+Today, I worked on:
+
+## Dec 12
 
 Today, I worked on:

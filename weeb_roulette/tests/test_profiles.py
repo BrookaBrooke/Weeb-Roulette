@@ -1,26 +1,27 @@
 from fastapi.testclient import TestClient
 from main import app
-from accounts.queries import AccountQueries
+from queries.profiles import ProfileQueries
 
 client = TestClient(app)
 
 
-class MockAccountRepository:
+class MockProfileRepository:
     def all(self):
         return []
 
 
-def test_get_all_accounts():
+def test_get_queue():
 
     # Arrange
-    app.dependency_overrides[AccountQueries] = MockAccountRepository
+    app.dependency_overrides[ProfileQueries] = MockProfileRepository
 
     # Act
-    response = client.get("/api/accounts")
+    response = client.get("/profiles")
 
     # Assert
     assert response.status_code == 200
-    assert response.json() == []
+    assert response.json() == {'profiles': []}
 
     # Clean up
     app.dependency_overrides = {}
+

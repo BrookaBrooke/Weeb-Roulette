@@ -22,7 +22,7 @@
 * Signup feature
 * Login feature
 * Pull up AnimeList page via 3rd party API.
-* (fix) Pulling up Detail page for each anime upon clicking image.
+* Pulling up Detail page for each anime upon clicking image.
 
 # Stretch Goals
 
@@ -41,8 +41,8 @@
 
 ## Tests
 
-* [test location] / [test author]
-* 
-* 
-* 
+* [weeb_roulette/tests/test_threads] / Connor Gillespie
+* [weeb_roulette/tests/test_queues] / Leo Galvan
+* [weeb_roulette/tests/test_accounts] / Matt Sabo
+* [weeb_roulette/tests/test_profiles] / John Kim
 * 

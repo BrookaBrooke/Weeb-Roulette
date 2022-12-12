@@ -6,14 +6,13 @@ from models.anime import AnimeQueueIn, AnimeQueue, AnimeQueueList, AnimeIdReques
 from queries.anime import AnimeQueueQueries
 
 
-router = APIRouter()
+router = APIRouter(tags=["animes"])
 
 not_authorized = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
     detail="Invalid authentication credentials",
     headers={"WWW-Authenticate": "Bearer"},
 )
-
 @router.get("/anime_list/{id}")
 def get_anime_lists(id):
     data = get_anime_list(id)
