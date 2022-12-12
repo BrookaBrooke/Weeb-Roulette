@@ -13,7 +13,6 @@ not_authorized = HTTPException(
     detail="Invalid authentication credentials",
     headers={"WWW-Authenticate": "Bearer"},
 )
-
 @router.get("/anime_list/{id}")
 def get_anime_lists(id):
     data = get_anime_list(id)

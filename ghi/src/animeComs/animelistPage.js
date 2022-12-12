@@ -21,7 +21,7 @@ const AnimeList = () => {
     return (
       <div className="card">
         <div className="card_body">
-          <Link to={`/animedetail/${props.id}`}>
+          <Link to={`/detail`}>
             <img src={props.img} alt="" />
           </Link>
           <h2 className="card_title">{props.title}</h2>
@@ -66,8 +66,6 @@ const AnimeList = () => {
                       description={anime.attributes.description}
                     />
                   </td>
-                  {/* Figure out on click redirect to detail page */}
-                  {/* assign id value to onclick function */}
                 </tr>
               );
             })}
